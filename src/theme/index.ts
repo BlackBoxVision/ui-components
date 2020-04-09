@@ -3,6 +3,7 @@ import { palette } from './palette';
 import { typography } from './typography';
 
 export const theme = createMuiTheme({
+  palette,
   typography: {
     fontFamily: "Ubuntu, 'sans-serif'",
     h6: {

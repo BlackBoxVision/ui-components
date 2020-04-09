@@ -1,5 +1,5 @@
-import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { storiesOf } from '@storybook/react';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import { SectionCard, theme } from '../src';
