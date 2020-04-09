@@ -11,8 +11,8 @@ export const Header: FunctionComponent<HeaderProps> = ({ children }) => {
   const classes = useStyles();
   return (
     <Headroom>
-      <AppBar position="static" classes={{ root: classes.root }}>
-        <Toolbar>{children}</Toolbar>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar className={classes.toolbar}>{children}</Toolbar>
       </AppBar>
     </Headroom>
   );
