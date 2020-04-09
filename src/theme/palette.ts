@@ -6,6 +6,9 @@ export const palette = {
   secondary: {
     main: '#112F41',
   },
+  common: {
+    white: '#FFF',
+  },
   doveGray: '#666',
   tundora: '#424242',
 };
