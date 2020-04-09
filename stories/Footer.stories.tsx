@@ -7,7 +7,7 @@ import { Footer, theme } from '../src';
 
 const useStyles = makeStyles((theme) => ({
   btn: {
-    color: theme.palette.common.white,
+    color: theme.palette.text.primary,
   },
   mTop8: {
     marginTop: theme.spacing(),

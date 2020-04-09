@@ -1,9 +1,13 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+
 import { palette } from './palette';
 import { typography } from './typography';
 
 export const theme = createMuiTheme({
-  palette,
+  palette: {
+    ...palette,
+    type: 'light',
+  },
   typography: {
     fontFamily: "Ubuntu, 'sans-serif'",
     h6: {
