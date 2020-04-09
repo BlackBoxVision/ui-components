@@ -19,13 +19,15 @@ export interface FooterProps {
 }
 
 export const Footer: FunctionComponent<FooterProps> = ({
-  social,
   copyright,
+  children,
+  social,
   LanguageButtons,
 }) => {
   const classes = useStyles();
   return (
     <Container component="footer" className={classes.container}>
+      {children}
       <div className={classes.socialContainer}>
         {social &&
           social.map(({ key, slug, Icon, background }) => (
