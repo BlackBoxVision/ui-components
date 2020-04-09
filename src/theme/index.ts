@@ -14,5 +14,8 @@ export const theme = createMuiTheme({
     body1: {
       color: palette.doveGray,
     },
+    subtitle2: {
+      color: palette.common.white,
+    },
   },
 });
