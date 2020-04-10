@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Container, Typography } from '@material-ui/core';
 import {
   faFacebookF,
@@ -6,25 +6,58 @@ import {
   faLinkedin,
   faTwitter,
   faInstagram,
+  IconDefinition,
 } from '@fortawesome/free-brands-svg-icons';
 
-import Social, { SocialProps } from './Social';
+import Social from './Social';
 import { useStyles } from './styles';
 
-export interface FooterProps {
-  copyright: string;
-  children?: any;
-  social?: Array<SocialProps>;
-  LanguageButtons?: any;
+export interface SocialItemProps {
+  /**
+   * String that represents the social network's name
+   */
+  key: string;
+  /**
+   * URL for the social network profile you want to refer
+   */
+  slug: string;
+  /**
+   * Icon related to the social network
+   */
+  Icon: IconDefinition;
+  /**
+   * Background color for the social network
+   */
+  background: string;
 }
 
-export const Footer: FunctionComponent<FooterProps> = ({
+export interface FooterProps {
+  /**
+   * String that represents the enterprise copyright
+   */
+  copyright: string;
+  /**
+   * Array for showing social links
+   */
+  social?: SocialItemProps[];
+  /**
+   * React children components
+   */
+  children?: ReactNode;
+  /**
+   * React component for showing language chooser
+   */
+  LanguageButtons?: ReactNode;
+}
+
+export const Footer: FC<FooterProps> = ({
   copyright,
   children,
   social,
   LanguageButtons,
-}) => {
+}: FooterProps) => {
   const classes = useStyles();
+
   return (
     <Container component="footer" className={classes.container}>
       {children}

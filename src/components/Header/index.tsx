@@ -1,13 +1,16 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC, ReactNode } from 'react';
 import Headroom from 'react-headroom';
 import { AppBar, Toolbar } from '@material-ui/core';
 import { useStyles } from './styles';
 
 export interface HeaderProps {
-  children: any;
+  /**
+   * React children components
+   */
+  children?: ReactNode;
 }
 
-export const Header: FunctionComponent<HeaderProps> = ({ children }) => {
+export const Header: FC<HeaderProps> = ({ children }: HeaderProps) => {
   const classes = useStyles();
   return (
     <Headroom>

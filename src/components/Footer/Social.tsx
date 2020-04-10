@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 export interface SocialProps {
+  /**
+   * String that represents the social network's name
+   */
   key: string;
+  /**
+   * URL for the social network profile you want to refer
+   */
   slug: string;
+  /**
+   * Icon related to the social network
+   */
   Icon: IconDefinition;
+  /**
+   * Background color for the social network
+   */
   background: string;
 }
 
@@ -30,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Social = ({ background, slug, Icon }: SocialProps) => {
+const Social: FC<SocialProps> = ({ background, slug, Icon }: SocialProps) => {
   const classes = useStyles({ background });
 
   return (
