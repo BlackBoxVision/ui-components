@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { storiesOf } from '@storybook/react';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { Grid } from '@material-ui/core';
 
 import { addThemeProvider } from './utils/decorators/theme';
@@ -36,13 +36,13 @@ export const MyRepoCard = () => (
     <Grid xs={false} sm={1} md={1} lg={1} item />
     <Grid xs={12} sm={5} md={5} lg={4} item>
       <RepoCard
-        url="https://github.com/BlackBoxVision/datetimepicker-edittext"
-        description="📅 A set of EditTexts with built-in support for Date and TimePicker's using Fragments"
-        name="BlackBoxVision/datetimepicker-edittext"
-        languageName="Kotlin"
-        languageColor="#F18E33"
-        forks={12}
-        stars={32}
+        name="BlackBoxVision/react-native-mercadopago-checkout"
+        description="💸 React Native bridge for MercadoPago SDK version >= 3.2.0"
+        url="https://github.com/BlackBoxVision/react-native-mercadopago-checkout"
+        stars={15}
+        forks={9}
+        languageName="Java"
+        languageColor="#B07219"
       />
     </Grid>
   </Grid>
@@ -55,30 +55,48 @@ MyRepoCard.displayName = 'MyRepoCard';
 
 Here you can see the **RepoCard** component in action:
 
-<Preview>
-  <Story name="Get started" decorators={[addThemeProvider(theme)]}>
+<Preview withSource="none">
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
     <Grid alignItems="center" justify="center" container>
       <Grid xs={12} sm={5} md={5} lg={4} item>
         <RepoCard
-          name="BlackBoxVision/react-native-mercadopago-checkout"
-          description="💸 React Native bridge for MercadoPago SDK version >= 3.2.0"
-          url="https://github.com/BlackBoxVision/react-native-mercadopago-checkout"
-          stars={15}
-          forks={9}
-          languageName="Java"
-          languageColor="#B07219"
+          name={text(
+            'Name',
+            'BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          description={text(
+            'Description',
+            '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
+          )}
+          url={text(
+            'Url',
+            'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          stars={number('Stars', 15)}
+          forks={number('Forks', 9)}
+          languageName={text('Language Name', 'Java')}
+          languageColor={text('Language Color', '#B07219')}
         />
       </Grid>
       <Grid xs={false} sm={1} md={1} lg={1} item />
       <Grid xs={12} sm={5} md={5} lg={4} item>
         <RepoCard
-          url="https://github.com/BlackBoxVision/datetimepicker-edittext"
-          description="📅 A set of EditTexts with built-in support for Date and TimePicker's using Fragments"
-          name="BlackBoxVision/datetimepicker-edittext"
-          languageName="Kotlin"
-          languageColor="#F18E33"
-          forks={12}
-          stars={32}
+          name={text(
+            'Name',
+            'BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          description={text(
+            'Description',
+            '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
+          )}
+          url={text(
+            'Url',
+            'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          stars={number('Stars', 15)}
+          forks={number('Forks', 9)}
+          languageName={text('Language Name', 'Java')}
+          languageColor={text('Language Color', '#B07219')}
         />
       </Grid>
     </Grid>
