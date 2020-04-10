@@ -1,0 +1,110 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { Grid } from '@material-ui/core';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { RepoCard, theme } from '../src';
+
+<Meta title="UI Components/RepoCard" component={RepoCard} />
+
+# RepoCard
+
+Stories related to **RepoCard** component.
+
+## Example
+
+This is how you can use **RepoCard** component:
+
+```jsx
+import React from 'react';
+import { Grid } from '@material-ui/core';
+import { RepoCard } from '@blackbox-vision/ui-components';
+
+export const MyRepoCard = () => (
+  <Grid alignItems="center" justify="center" container>
+    <Grid xs={12} sm={5} md={5} lg={4} item>
+      <RepoCard
+        name="BlackBoxVision/react-native-mercadopago-checkout"
+        description="💸 React Native bridge for MercadoPago SDK version >= 3.2.0"
+        url="https://github.com/BlackBoxVision/react-native-mercadopago-checkout"
+        stars={15}
+        forks={9}
+        languageName="Java"
+        languageColor="#B07219"
+      />
+    </Grid>
+    <Grid xs={false} sm={1} md={1} lg={1} item />
+    <Grid xs={12} sm={5} md={5} lg={4} item>
+      <RepoCard
+        name="BlackBoxVision/react-native-mercadopago-checkout"
+        description="💸 React Native bridge for MercadoPago SDK version >= 3.2.0"
+        url="https://github.com/BlackBoxVision/react-native-mercadopago-checkout"
+        stars={15}
+        forks={9}
+        languageName="Java"
+        languageColor="#B07219"
+      />
+    </Grid>
+  </Grid>
+);
+
+MyRepoCard.displayName = 'MyRepoCard';
+```
+
+## Live Preview
+
+Here you can see the **RepoCard** component in action:
+
+<Preview withSource="none">
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+    <Grid alignItems="center" justify="center" container>
+      <Grid xs={12} sm={5} md={5} lg={4} item>
+        <RepoCard
+          name={text(
+            'Name',
+            'BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          description={text(
+            'Description',
+            '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
+          )}
+          url={text(
+            'Url',
+            'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          stars={number('Stars', 15)}
+          forks={number('Forks', 9)}
+          languageName={text('Language Name', 'Java')}
+          languageColor={text('Language Color', '#B07219')}
+        />
+      </Grid>
+      <Grid xs={false} sm={1} md={1} lg={1} item />
+      <Grid xs={12} sm={5} md={5} lg={4} item>
+        <RepoCard
+          name={text(
+            'Name',
+            'BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          description={text(
+            'Description',
+            '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
+          )}
+          url={text(
+            'Url',
+            'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
+          )}
+          stars={number('Stars', 15)}
+          forks={number('Forks', 9)}
+          languageName={text('Language Name', 'Java')}
+          languageColor={text('Language Color', '#B07219')}
+        />
+      </Grid>
+    </Grid>
+  </Story>
+</Preview>
+
+## RepoCard Props
+
+Here you can see the props for the **RepoCard** component:
+
+<Props of={RepoCard} />
