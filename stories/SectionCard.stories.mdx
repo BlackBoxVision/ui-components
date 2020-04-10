@@ -1,0 +1,31 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ThemeProvider } from '@material-ui/core';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { SectionCard, theme } from '../src';
+
+<Meta title="UI Components/SectionCard" component={SectionCard} />
+
+# SectionCard
+
+Stories related to **SectionCard** component.
+
+## Component Usage
+
+Here you can see the usage of the **SectionCard** component:
+
+<Preview withSource="open">
+  <Story name="Get started" decorators={[addThemeProvider(theme)]}>
+    <SectionCard
+      title="We discover"
+      image="https://www.blackbox-vision.tech/static/needs-e78b2aa36c17de9132482ac752cbfac8.svg"
+      description="Our focus is understand business and stakeholders needs, analyzing, defining and validating every requirement in order to know “what” is needed."
+    />
+  </Story>
+</Preview>
+
+## SectionCard Props
+
+Here you can see the props for the **SectionCard** component:
+
+<Props of={SectionCard} />

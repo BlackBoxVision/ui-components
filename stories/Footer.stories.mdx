@@ -1,0 +1,30 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ThemeProvider } from '@material-ui/core';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { Footer, theme } from '../src';
+
+<Meta title="UI Components/Footer" component={Footer} />
+
+# Footer
+
+Stories related to **Footer** component.
+
+## Component Usage
+
+Here you can see the usage of the **Footer** component:
+
+<Preview withSource="open">
+  <Story name="Get started" decorators={[addThemeProvider(theme)]}>
+    <Footer
+      copyright={`BlackBox Vision @ ${new Date().getFullYear()} - All Rights Reserved`}
+      LanguageButtons={<LanguageButtons />}
+    />
+  </Story>
+</Preview>
+
+## Footer Props
+
+Here you can see the props for the **Footer** component:
+
+<Props of={Footer} />
