@@ -1,0 +1,83 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ThemeProvider } from '@material-ui/core';
+import StoryRouter from 'storybook-react-router';
+import { linkTo } from '@storybook/addon-links';
+import { Route } from 'react-router-dom';
+
+import { LogoComponent } from './utils/components/LogoComponent';
+import { MenuComponent } from './utils/components/MenuComponent';
+import { addThemeProvider } from './utils/decorators/theme';
+import { menuItems } from './utils/items';
+
+import { Header, theme } from '../src';
+
+<Meta title="UI Components/Header" component={Header} />
+
+# Header
+
+Stories related to **Header** component.
+
+## Example
+
+This is how you can use **Header** component:
+
+```jsx
+import React from 'react';
+import { Header } from '@blackbox-vision/ui-components';
+
+import LogoComponent from './LogoComponent';
+import MenuComponent from './MenuComponent';
+
+export const MyHeader = () => (
+  <Header>
+    <LogoComponent />
+    <MenuComponent />
+  </Header>
+);
+
+MyHeader.displayName = 'MyHeader';
+```
+
+## Live Preview
+
+Here you can see the **Header** component in action:
+
+<Preview>
+  <Story
+    name="Get started"
+    decorators={[
+      addThemeProvider(theme),
+      StoryRouter(
+        {
+          '/': linkTo('Header', 'home'),
+        },
+        { initialEntries: ['/about'] }
+      ),
+    ]}
+  >
+    <div>
+      <Route exact path="/">
+        <Header>
+          <LogoComponent />
+          <MenuComponent menu={menuItems} />
+        </Header>
+        <br />
+        I'm in the "Home" page
+      </Route>
+      <Route exact path="/about">
+        <Header>
+          <LogoComponent />
+          <MenuComponent menu={menuItems} />
+        </Header>
+        <br />
+        I'm in the "About" page
+      </Route>
+    </div>
+  </Story>
+</Preview>
+
+## Header Props
+
+Here you can see the props for the **Header** component:
+
+<Props of={Header} />

@@ -1,24 +1,51 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
 
 import { useStyles } from './styles';
 
-export interface SectionCardProps {
-  image: string;
-  title: string;
-  description: string;
-  elevation?: number;
-  aosProps?: any;
+export interface AosProps {
+  /**
+   * Name of the animation to use
+   */
+  'data-aos': string;
+  /**
+   * Mark if animation is done only once
+   */
+  'data-aos-once': string | boolean;
 }
 
-export const SectionCard: FunctionComponent<SectionCardProps> = ({
+export interface SectionCardProps {
+  /**
+   * URL for an Image to load in SectionCard
+   */
+  image: string;
+  /**
+   * Title to show in SectionCard
+   */
+  title: string;
+  /**
+   * Description to show in SectionCard
+   */
+  description: string;
+  /**
+   * Box Shadow for the SectionCard
+   */
+  elevation?: number;
+  /**
+   * AOS properties for animation configuration
+   */
+  aosProps?: AosProps;
+}
+
+export const SectionCard: FC<SectionCardProps> = ({
   image,
   title,
   description,
   elevation,
   aosProps,
-}) => {
+}: SectionCardProps) => {
   const classes = useStyles();
+
   return (
     <Card {...aosProps} elevation={elevation} className={classes.card}>
       <CardContent className={classes.cardContent}>
