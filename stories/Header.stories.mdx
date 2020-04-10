@@ -8,7 +8,7 @@ import { MenuComponent } from './utils/components/MenuComponent';
 import { addThemeProvider } from './utils/decorators/theme';
 import { menuItems } from './utils/items';
 
-import { Header, theme } from '../src';
+import { Header, lightTheme } from '../src';
 
 <Meta title="UI Components/Header" component={Header} />
 
@@ -45,7 +45,7 @@ Here you can see the **Header** component in action:
   <Story
     name="Get started"
     decorators={[
-      addThemeProvider(theme),
+      addThemeProvider(lightTheme),
       StoryRouter(
         {
           '/': linkTo('Header', 'home'),

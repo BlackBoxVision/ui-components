@@ -2,7 +2,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
 
 import { addThemeProvider } from './utils/decorators/theme';
-import { SectionCard, theme } from '../src';
+import { SectionCard, lightTheme } from '../src';
 
 <Meta title="UI Components/SectionCard" component={SectionCard} />
 
@@ -34,7 +34,7 @@ MySectionCard.displayName = 'MySectionCard';
 Here you can see the **SectionCard** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
     <SectionCard
       elevation={number('Elevation', 0)}
       title={text('Title', 'We discover')}

@@ -3,7 +3,7 @@ import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { Grid } from '@material-ui/core';
 
 import { addThemeProvider } from './utils/decorators/theme';
-import { RepoCard, theme } from '../src';
+import { RepoCard, lightTheme } from '../src';
 
 <Meta title="UI Components/RepoCard" component={RepoCard} />
 
@@ -56,7 +56,7 @@ MyRepoCard.displayName = 'MyRepoCard';
 Here you can see the **RepoCard** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
     <Grid alignItems="center" justify="center" container>
       <Grid xs={12} sm={5} md={5} lg={4} item>
         <RepoCard
