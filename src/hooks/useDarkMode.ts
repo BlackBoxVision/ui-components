@@ -1,25 +1,20 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
-import { theme as defaultTheme } from '../theme';
+import { defaultTheme } from '../theme';
+import {createMuiTheme, Theme} from "@material-ui/core";
 
-export const useDarkMode = () => {
-  const [theme, setTheme] = useState(defaultTheme);
+export const useDarkMode = (): [Theme, (() => void)] => {
+  const [light, setLight] = useState(defaultTheme?.palette?.type === 'light');
 
-  const {
-    palette: { type },
-  } = theme;
+  const toggleDarkMode = useCallback(() => setLight(!light), [light])
 
-  const toggleDarkMode = () => {
-    const updatedTheme: any = {
-      ...theme,
-      palette: {
-        ...theme.palette,
-        type: type === 'light' ? 'dark' : 'light',
-      },
-    };
-
-    setTheme(updatedTheme);
-  };
+  const theme = useMemo(() => createMuiTheme({
+    ...defaultTheme,
+    palette: {
+      ...defaultTheme?.palette,
+      type: light ? 'light' : 'dark'
+    }
+  }), [light])
 
   return [theme, toggleDarkMode];
 };
