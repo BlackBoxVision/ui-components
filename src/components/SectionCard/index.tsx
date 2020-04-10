@@ -3,7 +3,7 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 
 import { useStyles } from './styles';
 
-export interface AosProps {
+interface AosProps {
   /**
    * Name of the animation to use
    */

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import clsx from 'clsx';
 import { Card, CardActions, Link, Typography } from '@material-ui/core';
 import {
@@ -7,9 +7,19 @@ import {
   faCodeBranch,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { AosProps } from '../SectionCard';
 
 import { useStyles } from './styles';
+
+interface AosProps {
+  /**
+   * Name of the animation to use
+   */
+  'data-aos': string;
+  /**
+   * Mark if animation is done only once
+   */
+  'data-aos-once': string | boolean;
+}
 export interface RepoCardProps {
   /**
    * User and name of the repository
@@ -49,7 +59,7 @@ export interface RepoCardProps {
   aosProps?: AosProps;
 }
 
-export const RepoCard: FunctionComponent<RepoCardProps> = ({
+export const RepoCard: FC<RepoCardProps> = ({
   name,
   description,
   url,
@@ -59,7 +69,7 @@ export const RepoCard: FunctionComponent<RepoCardProps> = ({
   languageColor,
   aosProps,
   className,
-}) => {
+}: RepoCardProps) => {
   const classes = useStyles();
   return (
     <Link
