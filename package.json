@@ -78,9 +78,8 @@
     "build": "npm run clean && pack build",
     "test": "jest --passWithNoTests -- -u",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "predeploy-storybook": "npm run build-storybook",
-    "deploy-storybook": "storybook-to-ghpages"
+    "build-storybook": "build-storybook -o .out",
+    "deploy-storybook": "rimraf .out && npm run build-storybook && echo 'ui.blackbox-vision.tech' > '.out/CNAME' && storybook-to-ghpages --existing-output-dir=.out"
   },
   "@pika/pack": {
     "pipeline": [
