@@ -10,11 +10,31 @@ import { Footer, theme } from '../src';
 
 Stories related to **Footer** component.
 
-## Component Usage
+## Example
 
-Here you can see the usage of the **Footer** component:
+This is how you can use **Footer** component:
 
-<Preview withSource="open">
+```jsx
+import React from 'react';
+import { Footer } from '@blackbox-vision/ui-components';
+
+import LanguageButtons from './LanguageButtons';
+
+export const MyFooter = () => (
+  <Footer
+    copyright={`BlackBox Vision @ ${new Date().getFullYear()} - All Rights Reserved`}
+    LanguageButtons={<LanguageButtons />}
+  />
+);
+
+MyFooter.displayName = 'MyFooter';
+```
+
+## Live Preview
+
+Here you can see the **Footer** component in action:
+
+<Preview>
   <Story name="Get started" decorators={[addThemeProvider(theme)]}>
     <Footer
       copyright={`BlackBox Vision @ ${new Date().getFullYear()} - All Rights Reserved`}

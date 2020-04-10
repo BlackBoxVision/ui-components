@@ -10,11 +10,30 @@ import { SectionCard, theme } from '../src';
 
 Stories related to **SectionCard** component.
 
-## Component Usage
+## Example
 
-Here you can see the usage of the **SectionCard** component:
+This is how you can use **SectionCard** component:
 
-<Preview withSource="open">
+```jsx
+import React from 'react';
+import { SectionCard } from '@blackbox-vision/ui-components';
+
+export const MySectionCard = () => (
+  <SectionCard
+    title="We discover"
+    image="https://www.blackbox-vision.tech/static/needs-e78b2aa36c17de9132482ac752cbfac8.svg"
+    description="Our focus is understand business and stakeholders needs, analyzing, defining and validating every requirement in order to know “what” is needed."
+  />
+);
+
+MySectionCard.displayName = 'MySectionCard';
+```
+
+## Live Preview
+
+Here you can see the **SectionCard** component in action:
+
+<Preview>
   <Story name="Get started" decorators={[addThemeProvider(theme)]}>
     <SectionCard
       title="We discover"
