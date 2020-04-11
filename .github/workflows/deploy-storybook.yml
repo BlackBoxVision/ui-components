@@ -1,0 +1,17 @@
+name: Deploy Storybook to GH Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    container:
+      image: node:10
+    steps:
+      - name: Install dependencies
+        run: npm i
+      - name: Deploy to GH Pages
+        run: npm run deploy-storybook
