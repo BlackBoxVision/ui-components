@@ -18,4 +18,11 @@ export const theme = createMuiTheme({
       color: palette.common.white,
     },
   },
+  overrides: {
+    MuiFormControl: {
+      root: {
+        minHeight: 90,
+      },
+    },
+  },
 });

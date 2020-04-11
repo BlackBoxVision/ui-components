@@ -1,0 +1,91 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { Grid } from '@material-ui/core';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { emailRegex } from './utils/regex';
+import { ContactForm, theme } from '../src';
+
+<Meta title="UI Components/ContactForm" component={ContactForm} />
+
+# ContactForm
+
+Stories related to **ContactForm** component.
+
+## Example
+
+This is how you can use **ContactForm** component:
+
+```jsx
+import React from 'react';
+import { ContactForm } from '@blackbox-vision/ui-components';
+import { yourValidateFn } from './utils';
+
+export const MyContactForm = () => (
+  <Grid container>
+    <Grid item>
+      <ContactForm
+        onSubmit={(values) =>
+          alert(`Submit values: ${JSON.stringify(values, 4, null)}`)
+        }
+        validate={yourValidateFn}
+        title="Contact us!"
+        subtitle="Complete the form if you are looking for incredible solutions!"
+        emailLabel="Email"
+        messageLabel="Message"
+        submitButtonLabel="Send"
+      />
+    </Grid>
+  </Grid>
+);
+
+MyContactForm.displayName = 'MyContactForm';
+```
+
+## Live Preview
+
+Here you can see the **ContactForm** component in action:
+
+<Preview withSource="none">
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+    <Grid container>
+      <Grid item>
+        <ContactForm
+          onSubmit={(values) =>
+            alert(`Submit values: ${JSON.stringify(values, 4, null)}`)
+          }
+          validate={(values) => {
+            const errors = {};
+            if (!values.email) {
+              errors.email = 'Email required';
+            }
+            
+            if (!emailRegex.test(values.email)) {
+              errors.email = 'Invalid email';
+            }
+            
+            if (!values.message) {
+              errors.message = 'Message required';
+            }
+            return errors;
+          }}
+          elevation={number('Elevation', 0)}
+          title={text('Title', 'Contact us!')}
+          subtitle={text(
+            'Subtitle',
+            'Complete the form if you are looking for incredible solutions!'
+          )}
+          emailLabel={text('Email label', 'Email')}
+          messageLabel={text('Message label', 'Message')}
+          submitButtonLabel={text('Send', 'Send')}
+        />
+      </Grid>
+    </Grid>
+  </Story>
+</Preview>
+
+## ContactForm Props
+
+Here you can see the props for the **ContactForm** component:
+
+<Props of={ContactForm} />
