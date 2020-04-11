@@ -9,10 +9,10 @@ const clipPath = {
 
 export const useStyles = makeStyles((theme) => ({
   section: {
+    background: `linear-gradient(45deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.dark} 100%)`,
     clipPath: (props: any) => clipPath[props.clip],
     display: 'flex',
     justifyContent: 'center',
-    background: `linear-gradient(45deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.dark} 100%)`,
     height: 'calc(100vh - 16px)',
     position: 'relative',
   },

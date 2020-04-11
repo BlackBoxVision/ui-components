@@ -5,11 +5,26 @@ import { Particles } from '@blackbox-vision/react-particles';
 import { useStyles } from './styles';
 
 export interface HeroProps {
+  /**
+   * The title that shows the hero component
+   */
   title: string;
+  /**
+   * The subtitle that shows the hero component
+   */
   subtitle: string;
+  /**
+   * The particles component config object
+   */
   particlesConfig?: any;
+  /**
+   * The children of the hero component
+   */
   children?: ReactNode;
-  clip: string;
+  /**
+   * The direction of CSS background clipPath
+   */
+  clip: 'none' | 'left' | 'center' | 'right';
 }
 
 export const Hero: FC<HeroProps> = ({
@@ -17,7 +32,7 @@ export const Hero: FC<HeroProps> = ({
   subtitle,
   particlesConfig,
   children,
-  clip
+  clip,
 }: HeroProps) => {
   const classes = useStyles({ clip });
 
@@ -50,6 +65,7 @@ export const Hero: FC<HeroProps> = ({
 };
 
 Hero.defaultProps = {
+  clip: 'left',
   particlesConfig: {
     particles: {
       number: {
