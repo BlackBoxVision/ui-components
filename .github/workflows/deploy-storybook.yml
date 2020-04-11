@@ -6,13 +6,13 @@ on:
       - master
 
 jobs:
-  deploy:
-    name: Build and Deploy
+  build:
     runs-on: ubuntu-latest
-    container:
-      image: node:10
     steps:
-      - name: Install dependencies
-        run: npm i
-      - name: Deploy to GH Pages
-        run: npm run deploy-storybook
+      - uses: actions/checkout@v2
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - run: npm install
+      - run: npm run deploy-storybook
