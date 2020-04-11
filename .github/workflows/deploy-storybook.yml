@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     name: Build and Deploy
+    runs-on: ubuntu-latest
     container:
       image: node:10
     steps:
