@@ -80,7 +80,7 @@
     "test": "jest --passWithNoTests -- -u",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o .out",
-    "deploy-storybook": "rimraf .out && npm run build-storybook && echo 'ui.blackbox-vision.tech' > '.out/CNAME' && storybook-to-ghpages --existing-output-dir=.out"
+    "deploy-storybook": "rimraf .out && npm run build-storybook && echo 'ui.blackbox-vision.tech' > '.out/CNAME' && storybook-to-ghpages --existing-output-dir=.out --ci --host-token-env-variable=GITHUB_TOKEN"
   },
   "@pika/pack": {
     "pipeline": [
