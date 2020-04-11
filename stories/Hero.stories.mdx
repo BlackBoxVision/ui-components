@@ -1,0 +1,68 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number, select } from '@storybook/addon-knobs';
+import { Button } from '@material-ui/core';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { Hero, theme } from '../src';
+
+<Meta title="UI Components/Hero" component={Hero} />
+
+# Hero
+
+Stories related to **Hero** component.
+
+## Example
+
+This is how you can use **Hero** component:
+
+```jsx
+import React from 'react';
+import { Hero } from '@blackbox-vision/ui-components';
+
+export const MyHero = () => (
+  <Hero
+    title="We are the Agency that will accompany you in the Digital Transformation of your Company"
+    subtitle="We provide creative solutions to the needs of our clients"
+  />
+);
+
+MyHero.displayName = 'MyHero';
+```
+
+## Live Preview
+
+Here you can see the **Hero** component in action:
+
+<Preview withSource="none">
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+    <Hero
+      title={text(
+        'Title',
+        'We are the Agency that will accompany you in the Digital Transformation of your Company'
+      )}
+      subtitle={text(
+        'Subtitle',
+        'We provide creative solutions to the needs of our clients'
+      )}
+      clip={select(
+        'clip',
+        { none: 'none', left: 'left', center: 'center', right: 'right' },
+        'left'
+      )}
+    >
+      <Button
+        color="secondary"
+        variant="outlined"
+        style={{ borderRadius: 50, width: 130 }}
+      >
+        Click me
+      </Button>
+    </Hero>
+  </Story>
+</Preview>
+
+## Hero Props
+
+Here you can see the props for the **Hero** component:
+
+<Props of={Hero} />
