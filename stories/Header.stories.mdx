@@ -26,11 +26,12 @@ import { Header } from '@blackbox-vision/ui-components';
 
 import LogoComponent from './LogoComponent';
 import MenuComponent from './MenuComponent';
+import { menuItems } from './utils/items';
 
 export const MyHeader = () => (
   <Header>
     <LogoComponent />
-    <MenuComponent />
+    <MenuComponent menu={menuItems} />
   </Header>
 );
 

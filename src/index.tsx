@@ -6,4 +6,5 @@ export * from './components/Hero';
 export * from './components/ContactForm';
 export * from './components/MenuItem';
 export * from './components/PostCard';
+export * from './components/MenuMobile';
 export * from './theme';

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from '@material-ui/core';
+import { Link, ListItem, ListItemText } from '@material-ui/core';
 
 import { useStyles } from './styles';
 
@@ -20,6 +20,14 @@ export interface MenuItemProps {
    * The boolean value used to determine some internal link props
    */
   external?: boolean;
+  /**
+   * The boolean value used to determine desktop or mobile styles
+   */
+  mobile?: boolean;
+  /**
+   * Callback used to close the drawer on mobile
+   */
+  onClose?: any;
 }
 
 export const MenuItem: FC<MenuItemProps> = ({
@@ -27,18 +35,24 @@ export const MenuItem: FC<MenuItemProps> = ({
   label,
   component,
   external,
+  mobile,
+  onClose,
 }: MenuItemProps) => {
-  const classes = useStyles();
+  const classes = useStyles(mobile);
 
-  const hrefProps = external ? { href: to } : { to };
+  const hrefProps = external
+    ? { href: to, target: '_blank', rel: 'noopener noreferrer' }
+    : { to, target: '_self' };
 
-  return (
+  return mobile ? (
+    <ListItem {...hrefProps} component={component} onClick={onClose} button>
+      <ListItemText primary={label} />
+    </ListItem>
+  ) : (
     <Link
       {...hrefProps}
-      target={external ? '_blank' : '_self'}
-      rel={external ? 'noopener noreferrer' : undefined}
       component={component}
-      className={classes.link}
+      className={!mobile && classes.link}
       underline="none"
     >
       {label}
@@ -48,6 +62,7 @@ export const MenuItem: FC<MenuItemProps> = ({
 
 MenuItem.defaultProps = {
   component: 'a',
+  mobile: false,
 };
 
 MenuItem.displayName = 'MenuItem';
