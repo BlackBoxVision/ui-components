@@ -6,15 +6,36 @@ import MenuItem from '../MenuItem';
 import { useStyles } from './styles';
 
 interface MenuItem {
+  /**
+   * The path of menu item link
+   */
   slug: string;
+  /**
+   * The label to display on link
+   */
   label: string;
+  /**
+   * The component used by the link
+   */
   component?: any;
+  /**
+   * A boolean to mark a link like external
+   */
   external?: boolean;
 }
 
 export interface MenuMobileProps {
+  /**
+   * A boolean flag used to open/close the menu
+   */
   open: boolean;
+  /**
+   * Function to toggle the open flag
+   */
   toggleMenu: any;
+  /**
+   * The menu list items
+   */
   menu: any;
 }
 
@@ -26,35 +47,33 @@ export const MenuMobile: FC<MenuMobileProps> = ({
   const classes = useStyles();
 
   return (
-    <>
-      <Hidden only={['md', 'lg', 'xl']} implementation="css">
-        <IconButton onClick={toggleMenu}>
-          <MenuRoundedIcon color="secondary" />
-        </IconButton>
-        <Drawer
-          anchor="left"
-          open={open}
-          variant="temporary"
-          onClose={toggleMenu}
-        >
-          <List className={classes.list}>
-            {menu.map(
-              ({ slug, label, component, external }: MenuItem, idx: string) => (
-                <MenuItem
-                  key={`menu_${idx}`}
-                  to={slug}
-                  label={label}
-                  component={component}
-                  external={external}
-                  onClose={toggleMenu}
-                  mobile
-                />
-              )
-            )}
-          </List>
-        </Drawer>
-      </Hidden>
-    </>
+    <Hidden only={['md', 'lg', 'xl']} implementation="css">
+      <IconButton onClick={toggleMenu}>
+        <MenuRoundedIcon color="secondary" />
+      </IconButton>
+      <Drawer
+        anchor="left"
+        open={open}
+        variant="temporary"
+        onClose={toggleMenu}
+      >
+        <List className={classes.list}>
+          {menu.map(
+            ({ slug, label, component, external }: MenuItem, idx: string) => (
+              <MenuItem
+                key={`menu_${idx}`}
+                to={slug}
+                label={label}
+                component={component}
+                external={external}
+                onClose={toggleMenu}
+                mobile
+              />
+            )
+          )}
+        </List>
+      </Drawer>
+    </Hidden>
   );
 };
 
