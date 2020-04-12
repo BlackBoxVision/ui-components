@@ -1,0 +1,107 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { Grid } from '@material-ui/core';
+import StoryRouter from 'storybook-react-router';
+import { linkTo } from '@storybook/addon-links';
+import { Switch, Route, Link } from 'react-router-dom';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { PostCard, theme } from '../src';
+
+<Meta title="UI Components/PostCard" component={PostCard} />
+
+# PostCard
+
+Stories related to **PostCard** component.
+
+## Example
+
+This is how you can use **PostCard** component:
+
+```jsx
+import React from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
+import { PostCard } from '@blackbox-vision/ui-components';
+import { Grid } from '@material-ui/core';
+
+export const MyPostCard = () => (
+  <Switch>
+    <Route exact path="/">
+      <Link to="/halving-a-react-qr-reader-bundle-size">
+        <Grid container>
+          <Grid xs={false} sm={6} md={4} item />
+          <Grid xs={12} sm={6} md={4} item>
+            <PostCard
+              title="Size matters - Halving a react-qr-reader bundle size"
+              image="https://cms.blackbox-vision.tech/content/images/2020/04/lib-logo-1.png"
+              date="06 April, 2020"
+              excerpt="Context\nIn the last few weeks, the team has been involve ..."
+            />
+          </Grid>
+        </Grid>
+      </Link>
+    </Route>
+    <Route exact path="/halving-a-react-qr-reader-bundle-size">
+      <h4>This is the "Halving A React Qr Reader Bundle Size" post!</h4>
+      <Link to="/">Back</Link>
+    </Route>
+  </Switch>
+);
+
+MyPostCard.displayName = 'MyPostCard';
+```
+
+## Live Preview
+
+Here you can see the **PostCard** component in action:
+
+<Preview withSource="none">
+  <Story
+    name="Get started"
+    decorators={[
+      withKnobs,
+      addThemeProvider(theme),
+      StoryRouter({
+        '/': linkTo('PostCard'),
+      }),
+    ]}
+  >
+    <Switch>
+      <Route exact path="/">
+        <Link to="/halving-a-react-qr-reader-bundle-size">
+          <Grid container>
+            <Grid xs={false} sm={6} md={4} item />
+            <Grid xs={12} sm={6} md={4} item>
+              <PostCard
+                title={text(
+                  'Title',
+                  'Size matters - Halving a react-qr-reader bundle size'
+                )}
+                image={text(
+                  'Image',
+                  'https://cms.blackbox-vision.tech/content/images/2020/04/lib-logo-1.png'
+                )}
+                date={text('Date', '06 April, 2020')}
+                excerpt={text(
+                  'Excerpt',
+                  'Context\nIn the last few weeks, the team has been involve ...'
+                )}
+                elevation={number('Elevation', 0)}
+              />
+            </Grid>
+          </Grid>
+        </Link>
+      </Route>
+      <Route exact path="/halving-a-react-qr-reader-bundle-size">
+        <h4>This is the "Halving A React Qr Reader Bundle Size" post!</h4>
+        <Link to="/">Back</Link>
+      </Route>
+    </Switch>
+  </Story>
+</Preview>
+
+## PostCard Props
+
+Here you can see the props for the **PostCard** component:
+
+<Props of={PostCard} />
