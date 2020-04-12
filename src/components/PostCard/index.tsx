@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Card, CardContent, Link, Typography } from '@material-ui/core';
+import { Card, CardContent, Typography } from '@material-ui/core';
 
 import { useStyles } from './styles';
 
@@ -32,15 +32,6 @@ export interface PostCardProps {
    */
   excerpt: string;
   /**
-   * The path to link the post
-   */
-  to: string;
-  /**
-   * 
-    The custom Link component to use
-   */
-  component: any;
-  /**
    * Box Shadow for the PostCard
    */
   elevation?: number;
@@ -55,43 +46,39 @@ export const PostCard: FC<PostCardProps> = ({
   image,
   date,
   excerpt,
-  to,
-  component,
   elevation,
   aosProps,
 }: PostCardProps) => {
   const classes = useStyles({ image });
 
   return (
-    <Link component={component} to={to} underline="none">
-      <Card {...aosProps} elevation={elevation} className={classes.card}>
-        <CardContent>
-          <Typography
-            align="left"
-            variant="subtitle2"
-            className={classes.cardText}
-          >
-            {date}
-          </Typography>
-          <Typography
-            align="left"
-            variant="h6"
-            className={classes.cardText}
-            gutterBottom
-          >
-            {title}
-          </Typography>
-          <Typography
-            align="left"
-            component="p"
-            className={classes.cardText}
-            gutterBottom
-          >
-            {excerpt}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Link>
+    <Card {...aosProps} elevation={elevation} className={classes.card}>
+      <CardContent>
+        <Typography
+          align="left"
+          variant="subtitle2"
+          className={classes.cardText}
+        >
+          {date}
+        </Typography>
+        <Typography
+          align="left"
+          variant="h6"
+          className={classes.cardText}
+          gutterBottom
+        >
+          {title}
+        </Typography>
+        <Typography
+          align="left"
+          component="p"
+          className={classes.cardText}
+          gutterBottom
+        >
+          {excerpt}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 

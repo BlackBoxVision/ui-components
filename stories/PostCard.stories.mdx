@@ -27,21 +27,23 @@ import { Grid } from '@material-ui/core';
 export const MyPostCard = () => (
   <Switch>
     <Route exact path="/">
-      <Grid container>
-        <Grid md={4} item>
-          <PostCard
-            title="Size matters - Halving a react-qr-reader bundle size"
-            image="https://cms.blackbox-vision.tech/content/images/2020/04/lib-logo-1.png"
-            component={Link}
-            to="/halving-a-react-qr-reader-bundle-size"
-            date="06 April, 2020"
-            excerpt="Context\nIn the last few weeks, the team has been involve ..."
-          />
+      <Link to="/halving-a-react-qr-reader-bundle-size">
+        <Grid container>
+          <Grid xs={false} sm={6} md={4} item />
+          <Grid xs={12} sm={6} md={4} item>
+            <PostCard
+              title="Size matters - Halving a react-qr-reader bundle size"
+              image="https://cms.blackbox-vision.tech/content/images/2020/04/lib-logo-1.png"
+              date="06 April, 2020"
+              excerpt="Context\nIn the last few weeks, the team has been involve ..."
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      </Link>
     </Route>
     <Route exact path="/halving-a-react-qr-reader-bundle-size">
-      This is the "Halving A React Qr Reader Bundle Size" post!
+      <h4>This is the "Halving A React Qr Reader Bundle Size" post!</h4>
+      <Link to="/">Back</Link>
     </Route>
   </Switch>
 );
@@ -66,29 +68,29 @@ Here you can see the **PostCard** component in action:
   >
     <Switch>
       <Route exact path="/">
-        <Grid container>
-          <Grid xs={false} sm={2} md={4} item />
-          <Grid xs={12} sm={8} md={4} item>
-            <PostCard
-              title={text(
-                'Title',
-                'Size matters - Halving a react-qr-reader bundle size'
-              )}
-              image={text(
-                'Image',
-                'https://cms.blackbox-vision.tech/content/images/2020/04/lib-logo-1.png'
-              )}
-              component={Link}
-              to="/halving-a-react-qr-reader-bundle-size"
-              date={text('Date', '06 April, 2020')}
-              excerpt={text(
-                'Excerpt',
-                'Context\nIn the last few weeks, the team has been involve ...'
-              )}
-              elevation={number('Elevation', 0)}
-            />
+        <Link to="/halving-a-react-qr-reader-bundle-size">
+          <Grid container>
+            <Grid xs={false} sm={6} md={4} item />
+            <Grid xs={12} sm={6} md={4} item>
+              <PostCard
+                title={text(
+                  'Title',
+                  'Size matters - Halving a react-qr-reader bundle size'
+                )}
+                image={text(
+                  'Image',
+                  'https://cms.blackbox-vision.tech/content/images/2020/04/lib-logo-1.png'
+                )}
+                date={text('Date', '06 April, 2020')}
+                excerpt={text(
+                  'Excerpt',
+                  'Context\nIn the last few weeks, the team has been involve ...'
+                )}
+                elevation={number('Elevation', 0)}
+              />
+            </Grid>
           </Grid>
-        </Grid>
+        </Link>
       </Route>
       <Route exact path="/halving-a-react-qr-reader-bundle-size">
         <h4>This is the "Halving A React Qr Reader Bundle Size" post!</h4>
