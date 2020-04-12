@@ -19,9 +19,41 @@ This is how you can use **MenuItem** component:
 
 ```jsx
 import React from 'react';
-import { MenuItem } from '@blackbox-vision/ui-components';
+import { Switch, Route, Link } from 'react-router-dom';
+import { Header, MenuItem } from '@blackbox-vision/ui-components';
 
-export const MyMenuItem = () => <MenuItem label="About us" />;
+export const MyMenuItem = () => (
+  <Switch>
+    <Route exact path="/">
+      <Header>
+        <nav>
+          <MenuItem to="/why" label={text('Label', 'Why')} component={Link} />
+          <MenuItem
+            to="https://opensource.blackbox-vision.tech/"
+            label="Open Source"
+            external
+          />
+        </nav>
+      </Header>
+      <br />
+      I'm in the "Home" page
+    </Route>
+    <Route exact path="/why">
+      <Header>
+        <nav>
+          <MenuItem to="/why" label={text('Label', 'Why')} component={Link} />
+          <MenuItem
+            to="https://opensource.blackbox-vision.tech/"
+            label="Open Source"
+            external
+          />
+        </nav>
+      </Header>
+      <br />
+      I'm in the "Why" page
+    </Route>
+  </Switch>
+);
 
 MyMenuItem.displayName = 'MyMenuItem';
 ```
