@@ -1,7 +1,7 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import StoryRouter from 'storybook-react-router';
 import { linkTo } from '@storybook/addon-links';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { LogoComponent } from './utils/components/LogoComponent';
 import { MenuComponent } from './utils/components/MenuComponent';
@@ -54,7 +54,7 @@ Here you can see the **Header** component in action:
       ),
     ]}
   >
-    <div>
+    <Switch>
       <Route exact path="/">
         <Header>
           <LogoComponent />
@@ -71,7 +71,7 @@ Here you can see the **Header** component in action:
         <br />
         I'm in the "About" page
       </Route>
-    </div>
+    </Switch>
   </Story>
 </Preview>
 
