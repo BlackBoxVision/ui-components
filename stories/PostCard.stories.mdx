@@ -68,7 +68,11 @@ Here you can see the **PostCard** component in action:
   >
     <Switch>
       <Route exact path="/">
-        <Link to="/halving-a-react-qr-reader-bundle-size">
+        <Link
+          to="/halving-a-react-qr-reader-bundle-size"
+          underline="none"
+          style={{ textDecoration: 'none' }}
+        >
           <Grid container>
             <Grid xs={false} sm={6} md={4} item />
             <Grid xs={12} sm={6} md={4} item>
