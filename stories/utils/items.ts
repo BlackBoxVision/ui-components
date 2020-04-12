@@ -19,4 +19,14 @@ export const menuItems = [
     slug: '/#contact',
     label: 'Contact',
   },
+  {
+    slug: 'https://blog.blackbox-vision.tech',
+    label: 'Blog',
+    external: true,
+  },
+  {
+    slug: 'https://opensource.blackbox-vision.tech',
+    label: 'Open Source',
+    external: true,
+  },
 ];

@@ -4,4 +4,5 @@ export * from './components/Footer';
 export * from './components/RepoCard';
 export * from './components/Hero';
 export * from './components/ContactForm';
+export * from './components/MenuItem';
 export * from './theme';
