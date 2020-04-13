@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   FC,
 } from 'react';
-import {CssBaseline, ThemeProvider} from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 
 import { lightTheme, darkTheme } from '../theme';
 
@@ -23,10 +23,8 @@ export const DarkModeProvider: FC<DarkModeProviderProps> = ({
   return (
     <DarkModeContext.Provider value={() => setDark(!dark)}>
       <ThemeProvider theme={dark ? darkTheme : lightTheme}>
-        <CssBaseline/>
-        <div style={{padding: 16}}>
-          {children}
-        </div>
+        <CssBaseline />
+        {children}
       </ThemeProvider>
     </DarkModeContext.Provider>
   );
