@@ -9,10 +9,13 @@
   "private": false,
   "dependencies": {},
   "peerDependencies": {
-    "react": "^16.13.1",
+    "@blackbox-vision/react-particles": "^1.2.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@material-ui/core": "^4.9.9",
-    "react-headroom": "^3.0.0",
-    "@fortawesome/react-fontawesome": "^0.1.9"
+    "react": "^16.13.1",
+    "final-form": "^4.19.1",
+    "react-final-form": "^6.4.0",
+    "react-headroom": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -20,6 +23,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@blackbox-vision/react-particles": "^1.2.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -28,6 +32,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
+    "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.9.2",
     "@pika/plugin-build-types": "^0.9.2",
     "@pika/plugin-build-web": "^0.9.2",
@@ -61,11 +66,13 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
+    "final-form": "^4.19.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.3",
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
+    "react-final-form": "^6.4.0",
     "react-headroom": "^3.0.0",
     "react-router-dom": "^5.1.2",
     "rimraf": "^3.0.2",
@@ -74,12 +81,12 @@
   "scripts": {
     "link": "npm run build && npm link pkg",
     "clean": "rimraf pkg",
-    "publish": "pack publish",
-    "build": "npm run clean && pack build",
+    "publish": "pika publish",
+    "build": "npm run clean && pika build",
     "test": "jest --passWithNoTests -- -u",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o .out",
-    "deploy-storybook": "rimraf .out && npm run build-storybook && echo 'ui.blackbox-vision.tech' > '.out/CNAME' && storybook-to-ghpages --existing-output-dir=.out"
+    "deploy-storybook": "rimraf .out && npm run build-storybook && echo 'ui.blackbox-vision.tech' > '.out/CNAME' && storybook-to-ghpages --ci --existing-output-dir=.out"
   },
   "@pika/pack": {
     "pipeline": [

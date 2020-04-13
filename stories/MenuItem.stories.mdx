@@ -1,0 +1,113 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+import StoryRouter from 'storybook-react-router';
+import { linkTo } from '@storybook/addon-links';
+import { Switch, Route, Link } from 'react-router-dom';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { MenuItem, Header, lightTheme } from '../src';
+
+<Meta title="UI Components/MenuItem" component={MenuItem} />
+
+# MenuItem
+
+Stories related to **MenuItem** component.
+
+## Example
+
+This is how you can use **MenuItem** component:
+
+```jsx
+import React from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
+import { Header, MenuItem } from '@blackbox-vision/ui-components';
+
+export const MyMenuItem = () => (
+  <Switch>
+    <Route exact path="/">
+      <Header>
+        <nav>
+          <MenuItem to="/why" label={text('Label', 'Why')} component={Link} />
+          <MenuItem
+            to="https://opensource.blackbox-vision.tech/"
+            label="Open Source"
+            external
+          />
+        </nav>
+      </Header>
+      <br />
+      I'm in the "Home" page
+    </Route>
+    <Route exact path="/why">
+      <Header>
+        <nav>
+          <MenuItem to="/why" label={text('Label', 'Why')} component={Link} />
+          <MenuItem
+            to="https://opensource.blackbox-vision.tech/"
+            label="Open Source"
+            external
+          />
+        </nav>
+      </Header>
+      <br />
+      I'm in the "Why" page
+    </Route>
+  </Switch>
+);
+
+MyMenuItem.displayName = 'MyMenuItem';
+```
+
+## Live Preview
+
+Here you can see the **MenuItem** component in action:
+
+<Preview withSource="none">
+  <Story
+    name="Get started"
+    decorators={[
+      withKnobs,
+      addThemeProvider(lightTheme),
+      StoryRouter({
+        '/': linkTo('MenuItem'),
+      }),
+    ]}
+  >
+    <Switch>
+      <Route exact path="/">
+        <Header>
+          <nav>
+            <MenuItem to="/why" label={text('Label', 'Why')} component={Link} />
+            <MenuItem
+              to="https://opensource.blackbox-vision.tech/"
+              label="Open Source"
+              external
+            />
+          </nav>
+        </Header>
+        <br />
+        I'm in the "Home" page
+      </Route>
+      <Route exact path="/why">
+        <Header>
+          <nav>
+            <MenuItem to="/why" label={text('Label', 'Why')} component={Link} />
+            <MenuItem
+              to="https://opensource.blackbox-vision.tech/"
+              label="Open Source"
+              external
+            />
+          </nav>
+        </Header>
+        <br />
+        I'm in the "Why" page
+      </Route>
+    </Switch>
+  </Story>
+</Preview>
+
+## MenuItem Props
+
+Here you can see the props for the **MenuItem** component:
+
+<Props of={MenuItem} />

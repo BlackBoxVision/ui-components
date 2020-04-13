@@ -22,6 +22,13 @@ export const lightTheme: Theme = createMuiTheme({
       color: lightPalette.common.white,
     },
   },
+  overrides: {
+    MuiFormControl: {
+      root: {
+        minHeight: 90,
+      },
+    },
+  },
 });
 
 export const darkTheme: Theme = createMuiTheme({

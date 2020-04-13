@@ -2,6 +2,7 @@ export const lightPalette = {
   primary: {
     light: '#B9EEE3',
     main: '#5CD2B9',
+    dark: '#3CCFB0',
   },
   secondary: {
     main: '#112F41',

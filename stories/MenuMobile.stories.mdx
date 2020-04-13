@@ -1,0 +1,49 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { MenuMobileSample } from './utils/components/MenuMobileSample';
+import { menuItems } from './utils/items';
+import { MenuMobile, lightTheme } from '../src';
+
+<Meta title="UI Components/MenuMobile" component={MenuMobile} />
+
+# MenuMobile
+
+Stories related to **MenuMobile** component.
+
+## Example
+
+This is how you can use **MenuMobile** component:
+
+```jsx
+import React from 'react';
+import { MenuMobile } from '@blackbox-vision/ui-components';
+import { menuItems } from './utils/items';
+
+export const MyMenuMobile = () => {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <MenuMobile open={open} menu={menuItems} onClose={() => setOpen(false)} />
+  );
+};
+
+MyMenuMobile.displayName = 'MyMenuMobile';
+```
+
+## Live Preview
+
+Here you can see the **MenuMobile** component in action:
+
+<Preview withSource="none">
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
+    <MenuMobileSample initialOpen={true} />
+  </Story>
+</Preview>
+
+## MenuMobile Props
+
+Here you can see the props for the **MenuMobile** component:
+
+<Props of={MenuMobile} />
