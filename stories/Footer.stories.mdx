@@ -2,7 +2,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
 
 import { addThemeProvider } from './utils/decorators/theme';
-import { Footer, theme } from '../src';
+import { Footer, lightTheme } from '../src';
 
 <Meta title="UI Components/Footer" component={Footer} />
 
@@ -35,7 +35,7 @@ MyFooter.displayName = 'MyFooter';
 Here you can see the **Footer** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
     <Footer
       copyright={text(
         'Copyright',

@@ -5,7 +5,7 @@ import { linkTo } from '@storybook/addon-links';
 import { Switch, Route, Link } from 'react-router-dom';
 
 import { addThemeProvider } from './utils/decorators/theme';
-import { MenuItem, Header, theme } from '../src';
+import { MenuItem, Header, lightTheme } from '../src';
 
 <Meta title="UI Components/MenuItem" component={MenuItem} />
 
@@ -67,7 +67,7 @@ Here you can see the **MenuItem** component in action:
     name="Get started"
     decorators={[
       withKnobs,
-      addThemeProvider(theme),
+      addThemeProvider(lightTheme),
       StoryRouter({
         '/': linkTo('MenuItem'),
       }),

@@ -4,7 +4,8 @@ import { Grid } from '@material-ui/core';
 
 import { addThemeProvider } from './utils/decorators/theme';
 import { emailRegex } from './utils/regex';
-import { ContactForm, theme } from '../src';
+
+import { ContactForm, lightTheme } from '../src';
 
 <Meta title="UI Components/ContactForm" component={ContactForm} />
 
@@ -47,7 +48,7 @@ MyContactForm.displayName = 'MyContactForm';
 Here you can see the **ContactForm** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
     <Grid container>
       <Grid item>
         <ContactForm

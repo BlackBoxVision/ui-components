@@ -4,7 +4,7 @@ import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { addThemeProvider } from './utils/decorators/theme';
 import { MenuMobileSample } from './utils/components/MenuMobileSample';
 import { menuItems } from './utils/items';
-import { MenuMobile, theme } from '../src';
+import { MenuMobile, lightTheme } from '../src';
 
 <Meta title="UI Components/MenuMobile" component={MenuMobile} />
 
@@ -37,8 +37,16 @@ MyMenuMobile.displayName = 'MyMenuMobile';
 Here you can see the **MenuMobile** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
-    <MenuMobileSample initialOpen={true} />
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
+    <div>
+      <MenuMobileSample initialOpen={true} />
+      <h2>
+        Resize your viewport to see the <strong>Hamburger</strong> button →
+      </h2>
+    </div>
   </Story>
 </Preview>
 

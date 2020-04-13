@@ -1,0 +1,68 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text } from '@storybook/addon-knobs';
+import { Button, Grid } from '@material-ui/core';
+
+import { DarkModeToggle, DarkModeProvider } from '../src';
+
+<Meta title="UI Components/DarkModeToggle" component={DarkModeToggle} />
+
+# DarkModeToggle
+
+Stories related to **DarkModeToggle** component.
+
+## Example
+
+This is how you can use **DarkModeToggle** component:
+
+```jsx
+import React from 'react';
+import {
+  DarkModeToggle,
+  DarkModeProvider,
+} from '@blackbox-vision/ui-components';
+import { Button, Grid } from '@material-ui/core';
+
+export const MyDarkModeToggle = () => (
+  <DarkModeProvider>
+    <Grid direction="column" spacing={2} container>
+      <Grid item>
+        <DarkModeToggle label="Dark mode" />
+      </Grid>
+      <Grid item>
+        <Button color="primary" variant="contained">
+          This is button
+        </Button>
+      </Grid>
+    </Grid>
+  </DarkModeProvider>
+);
+
+MyDarkModeToggle.displayName = 'MyDarkModeToggle';
+```
+
+## Live Preview
+
+Here you can see the **DarkModeToggle** component in action:
+
+<Preview withSource="none">
+  <Story name="Get started">
+    <DarkModeProvider>
+      <Grid direction="column" spacing={2} container>
+        <Grid item>
+          <DarkModeToggle label={text('Label', 'Dark mode')} />
+        </Grid>
+        <Grid item>
+          <Button color="primary" variant="contained">
+            This is button
+          </Button>
+        </Grid>
+      </Grid>
+    </DarkModeProvider>
+  </Story>
+</Preview>
+
+## DarkModeToggle Props
+
+Here you can see the props for the **DarkModeToggle** component:
+
+<Props of={DarkModeToggle} />

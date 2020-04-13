@@ -1,21 +1,25 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import { palette } from './palette';
+import { createMuiTheme, Theme } from '@material-ui/core';
+
+import { lightPalette, darkPalette } from './palette';
 import { typography } from './typography';
 
-export const theme = createMuiTheme({
-  palette,
+export const lightTheme: Theme = createMuiTheme({
+  palette: {
+    ...lightPalette,
+    type: 'light',
+  },
   typography: {
     fontFamily: "Ubuntu, 'sans-serif'",
     h6: {
-      color: palette.tundora,
+      color: lightPalette.tundora,
       fontSize: typography.sizes.h6,
       fontWeight: 600,
     },
     body1: {
-      color: palette.doveGray,
+      color: lightPalette.doveGray,
     },
     subtitle2: {
-      color: palette.common.white,
+      color: lightPalette.common.white,
     },
   },
   overrides: {
@@ -25,4 +29,14 @@ export const theme = createMuiTheme({
       },
     },
   },
+});
+
+export const darkTheme: Theme = createMuiTheme({
+  palette: {
+...darkPalette,
+    type: 'dark',
+  },
+  typography: {
+    fontFamily: "Ubuntu, 'sans-serif'",
+  }
 });

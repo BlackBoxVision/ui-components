@@ -3,7 +3,7 @@ import { withKnobs, text, number, select } from '@storybook/addon-knobs';
 import { Button } from '@material-ui/core';
 
 import { addThemeProvider } from './utils/decorators/theme';
-import { Hero, theme } from '../src';
+import { Hero, lightTheme } from '../src';
 
 <Meta title="UI Components/Hero" component={Hero} />
 
@@ -34,7 +34,7 @@ MyHero.displayName = 'MyHero';
 Here you can see the **Hero** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(theme)]}>
+  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
     <Hero
       title={text(
         'Title',

@@ -9,9 +9,6 @@ export const MenuMobileSample = ({ initialOpen = false }: any) => {
 
   return (
     <>
-      <Hidden only={['xs', 'sm']}>
-        Resize your viewport to see the <strong>Hamburger</strong> button →
-      </Hidden>
       <Hidden only={['xs', 'sm', 'md']}>
         <IconButton onClick={() => setOpen(!open)}>
           <MenuRoundedIcon color="secondary" />
