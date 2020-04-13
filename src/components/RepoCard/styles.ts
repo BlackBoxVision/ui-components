@@ -2,17 +2,26 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   card: {
+    borderRadius: '0.4rem',
     boxShadow: theme.shadows[2],
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    minHeight: 160,
-    height: '100%',
+    height: 195,
     marginBottom: theme.spacing(2),
     padding: theme.spacing(2),
     '&:hover': {
       boxShadow: theme.shadows[13],
     },
+  },
+  title: {
+    fontSize: '1rem',
+    lineHeight: 1.2,
+    fontWeight: 'bold',
+    marginBottom: '1.25rem',
+  },
+  description: {
+    fontSize: 16,
   },
   infoContainer: {
     alignItems: 'center',
@@ -20,5 +29,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   info: {
     marginLeft: theme.spacing(),
+    fontSize: 16,
   },
 }));

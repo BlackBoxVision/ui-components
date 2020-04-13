@@ -71,6 +71,7 @@ export const RepoCard: FC<RepoCardProps> = ({
   className,
 }: RepoCardProps) => {
   const classes = useStyles();
+
   return (
     <Link
       {...aosProps}
@@ -81,15 +82,29 @@ export const RepoCard: FC<RepoCardProps> = ({
     >
       <Card elevation={0} className={clsx(classes.card, className)}>
         <div>
-          <Typography variant="h6" gutterBottom>
+          <Typography
+            className={classes.title}
+            variant="subtitle1"
+            color="secondary"
+            component="h2"
+            gutterBottom
+          >
             {name}
           </Typography>
-          <Typography>{description}</Typography>
+          <Typography
+            className={classes.description}
+            color="secondary"
+            variant="body1"
+          >
+            {description}
+          </Typography>
         </div>
         <CardActions>
           <div className={classes.infoContainer}>
             <FontAwesomeIcon size="1x" icon={faCircle} color={languageColor} />
-            <Typography className={classes.info}>{languageName}</Typography>
+            <Typography color="secondary" className={classes.info}>
+              {languageName}
+            </Typography>
           </div>
           <Link
             href={`${url}/stargazers`}
@@ -99,7 +114,9 @@ export const RepoCard: FC<RepoCardProps> = ({
             className={classes.infoContainer}
           >
             <FontAwesomeIcon size="1x" icon={faStar} color={languageColor} />
-            <Typography className={classes.info}>{stars}</Typography>
+            <Typography color="secondary" className={classes.info}>
+              {stars}
+            </Typography>
           </Link>
           <Link
             href={`${url}/network`}
@@ -113,7 +130,9 @@ export const RepoCard: FC<RepoCardProps> = ({
               icon={faCodeBranch}
               color={languageColor}
             />
-            <Typography className={classes.info}>{forks}</Typography>
+            <Typography color="secondary" className={classes.info}>
+              {forks}
+            </Typography>
           </Link>
         </CardActions>
       </Card>
