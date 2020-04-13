@@ -1,6 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
-import { Grid } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
 
 import { addThemeProvider } from './utils/decorators/theme';
 import { RepoCard, lightTheme } from '../src';
@@ -56,50 +56,74 @@ MyRepoCard.displayName = 'MyRepoCard';
 Here you can see the **RepoCard** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
-    <Grid alignItems="center" justify="center" container>
-      <Grid xs={12} sm={5} md={5} lg={4} item>
-        <RepoCard
-          name={text(
-            'Name',
-            'BlackBoxVision/react-native-mercadopago-checkout'
-          )}
-          description={text(
-            'Description',
-            '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
-          )}
-          url={text(
-            'Url',
-            'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
-          )}
-          stars={number('Stars', 15)}
-          forks={number('Forks', 9)}
-          languageName={text('Language Name', 'Java')}
-          languageColor={text('Language Color', '#B07219')}
-        />
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
+    <Container>
+      <Grid alignItems="center" justify="center" spacing={4} container>
+        <Grid xs={12} sm={12} md={4} item>
+          <RepoCard
+            name={text(
+              'Name',
+              'BlackBoxVision/react-native-mercadopago-checkout'
+            )}
+            description={text(
+              'Description',
+              '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
+            )}
+            url={text(
+              'Url',
+              'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
+            )}
+            stars={number('Stars', 15)}
+            forks={number('Forks', 9)}
+            languageName={text('Language Name', 'Java')}
+            languageColor={text('Language Color', '#B07219')}
+          />
+        </Grid>
+        <Grid xs={12} sm={12} md={4} item>
+          <RepoCard
+            name={text(
+              'Name',
+              'BlackBoxVision/react-native-mercadopago-checkout'
+            )}
+            description={text(
+              'Description',
+              '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
+            )}
+            url={text(
+              'Url',
+              'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
+            )}
+            stars={number('Stars', 15)}
+            forks={number('Forks', 9)}
+            languageName={text('Language Name', 'Java')}
+            languageColor={text('Language Color', '#B07219')}
+          />
+        </Grid>
+        <Grid xs={12} sm={12} md={4} item>
+          <RepoCard
+            name={text(
+              'Name',
+              'BlackBoxVision/react-native-mercadopago-checkout'
+            )}
+            description={text(
+              'Description',
+              '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
+            )}
+            url={text(
+              'Url',
+              'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
+            )}
+            stars={number('Stars', 15)}
+            forks={number('Forks', 9)}
+            languageName={text('Language Name', 'Java')}
+            languageColor={text('Language Color', '#B07219')}
+          />
+        </Grid>
       </Grid>
-      <Grid xs={false} sm={1} md={1} lg={1} item />
-      <Grid xs={12} sm={5} md={5} lg={4} item>
-        <RepoCard
-          name={text(
-            'Name',
-            'BlackBoxVision/react-native-mercadopago-checkout'
-          )}
-          description={text(
-            'Description',
-            '💸 React Native bridge for MercadoPago SDK version >= 3.2.0'
-          )}
-          url={text(
-            'Url',
-            'https://github.com/BlackBoxVision/react-native-mercadopago-checkout'
-          )}
-          stars={number('Stars', 15)}
-          forks={number('Forks', 9)}
-          languageName={text('Language Name', 'Java')}
-          languageColor={text('Language Color', '#B07219')}
-        />
-      </Grid>
-    </Grid>
+    </Container>
   </Story>
 </Preview>
 

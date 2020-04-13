@@ -7,8 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    minHeight: 150,
-    height: '100%',
+    height: 195,
     marginBottom: theme.spacing(2),
     padding: theme.spacing(2),
     '&:hover': {
