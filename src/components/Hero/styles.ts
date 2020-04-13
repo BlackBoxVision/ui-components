@@ -7,13 +7,26 @@ const clipPath = {
   right: 'polygon(0 0, 100% 0, 100% 86%, 0 100%)',
 };
 
+const gradient = (
+  start: string,
+  end: string,
+  direction: string = '45deg',
+  startPercentage: string = '0%',
+  endPercentage: string = '100%'
+) =>
+  `linear-gradient(${direction}, ${start} ${startPercentage}, ${end} ${endPercentage})`;
+
 export const useStyles = makeStyles((theme) => ({
   section: {
-    background: `linear-gradient(45deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.dark} 100%)`,
+    background: (props: any) =>
+      props.gradient && props.gradient.start && props.gradient.end
+        ? gradient(props.gradient.start, props.gradient.end)
+        : gradient(theme.palette.primary.light, theme.palette.primary.dark),
     clipPath: (props: any) => clipPath[props.clip],
+    height: (props: any) =>
+      props.height ? props.height : 'calc(100vh - 16px)',
     display: 'flex',
     justifyContent: 'center',
-    height: 'calc(100vh - 16px)',
     position: 'relative',
   },
   title: {
