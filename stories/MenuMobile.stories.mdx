@@ -37,8 +37,16 @@ MyMenuMobile.displayName = 'MyMenuMobile';
 Here you can see the **MenuMobile** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
-    <MenuMobileSample initialOpen={true} />
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
+    <div>
+      <MenuMobileSample initialOpen={true} />
+      <h2>
+        Resize your viewport to see the <strong>Hamburger</strong> button →
+      </h2>
+    </div>
   </Story>
 </Preview>
 
