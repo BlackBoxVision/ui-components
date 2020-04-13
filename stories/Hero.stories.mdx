@@ -59,7 +59,13 @@ Here you can see the **Hero** component in action:
         'left'
       )}
       height={text('Height', '')}
-      gradient={object('Gradient', { start: null, end: null })}
+      gradient={object('Gradient', {
+        start: null,
+        end: null,
+        direction: null,
+        startPercentage: null,
+        endPercentage: null,
+      })}
     >
       <Button
         color="secondary"

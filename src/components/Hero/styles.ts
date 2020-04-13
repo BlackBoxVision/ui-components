@@ -20,7 +20,13 @@ export const useStyles = makeStyles((theme) => ({
   section: {
     background: (props: any) =>
       props.gradient && props.gradient.start && props.gradient.end
-        ? gradient(props.gradient.start, props.gradient.end)
+        ? gradient(
+            props.gradient.start,
+            props.gradient.end,
+            props.gradient.direction,
+            props.gradient.startPercentage,
+            props.gradient.endPercentage
+          )
         : gradient(theme.palette.primary.light, theme.palette.primary.dark),
     clipPath: (props: any) => clipPath[props.clip],
     height: (props: any) =>
