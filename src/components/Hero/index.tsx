@@ -4,15 +4,58 @@ import { Particles } from '@blackbox-vision/react-particles';
 
 import { useStyles } from './styles';
 
+export interface GradientProps {
+  /**
+   * The degrees for the linear gradient
+   */
+  direction?: string;
+  /**
+   * The color to start the gradient
+   */
+  start: string;
+  /**
+   * The percentage for the start color
+   */
+  startPercentage?: string;
+  /**
+   * The color to end the gradient
+   */
+  end: string;
+  /**
+   * The percentage for the end color
+   */
+  endPercentage?: string;
+}
+
 export interface HeroProps {
+  /**
+   * The id where to render the particles effect
+   */
+  id?: string;
+  /**
+   * The height of the section
+   */
+  height?: string | number;
+  /**
+   * An object config for the background gradient
+   */
+  gradient?: GradientProps;
   /**
    * The title that shows the hero component
    */
   title: string;
   /**
+   * Additional props for title component
+   */
+  titleProps?: any;
+  /**
    * The subtitle that shows the hero component
    */
   subtitle: string;
+  /**
+   * Additional props for subtitle component
+   */
+  subtitleProps?: any;
   /**
    * The particles component config object
    */
@@ -28,17 +71,22 @@ export interface HeroProps {
 }
 
 export const Hero: FC<HeroProps> = ({
+  id,
+  height,
   title,
+  titleProps,
   subtitle,
+  subtitleProps,
   particlesConfig,
+  gradient,
   children,
   clip,
 }: HeroProps) => {
-  const classes = useStyles({ clip });
+  const classes = useStyles({ clip, height, gradient });
 
   return (
-    <section id="hero" className={classes.section}>
-      <Particles id="hero" height="0" params={particlesConfig} />
+    <section id={id} className={classes.section}>
+      <Particles id={id} height="0" params={particlesConfig} />
       <Container maxWidth="md" className={classes.titlesContainer}>
         <Typography
           align="center"
@@ -46,6 +94,7 @@ export const Hero: FC<HeroProps> = ({
           variant="h4"
           className={classes.title}
           gutterBottom
+          {...titleProps}
         >
           {title}
         </Typography>
@@ -55,6 +104,7 @@ export const Hero: FC<HeroProps> = ({
           variant="h6"
           className={classes.subtitle}
           gutterBottom
+          {...subtitleProps}
         >
           {subtitle}
         </Typography>
@@ -65,6 +115,7 @@ export const Hero: FC<HeroProps> = ({
 };
 
 Hero.defaultProps = {
+  id: 'hero',
   clip: 'left',
   particlesConfig: {
     particles: {
