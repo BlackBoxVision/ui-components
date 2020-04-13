@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { Container, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import {
   faFacebookF,
   faGithub,
@@ -59,7 +59,7 @@ export const Footer: FC<FooterProps> = ({
   const classes = useStyles();
 
   return (
-    <Container component="footer" className={classes.container}>
+    <footer className={classes.container}>
       {children}
       <div className={classes.socialContainer}>
         {social &&
@@ -71,7 +71,7 @@ export const Footer: FC<FooterProps> = ({
         {copyright}
       </Typography>
       {LanguageButtons && LanguageButtons}
-    </Container>
+    </footer>
   );
 };
 
