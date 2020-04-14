@@ -12,9 +12,7 @@ export const useStyles = makeStyles((theme) => ({
       transform: 'translate3d(0, -5px, 0)',
     },
     margin: 4,
-    height: 50,
     textDecoration: 'none',
     transition: 'all 250ms ease-out',
-    width: 50,
   },
 }));

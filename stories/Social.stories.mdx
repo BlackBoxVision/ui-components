@@ -42,7 +42,11 @@ Here you can see the **Social** component in action:
     <Social
       name={text('Name', 'linkedin')}
       to={text('To', 'https://www.linkedin.com/company/blackbox-vision/')}
-      size={text('Size', 'medium')}
+      size={select('Size', {
+        small: 'small',
+        medium: 'medium',
+        large: 'large',
+      })}
       background={color('Background color', 'rgb(0, 119, 181)')}
       Icon={select(
         'Icon',
