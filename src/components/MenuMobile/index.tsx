@@ -9,7 +9,7 @@ interface MenuItem {
   /**
    * The path of menu item link
    */
-  slug: string;
+  to: string;
   /**
    * The label to display on link
    */
@@ -22,6 +22,10 @@ interface MenuItem {
    * A boolean to mark a link like external
    */
   external?: boolean;
+  /**
+   * A boolean to mark a link like anchor
+   */
+  anchor?: boolean;
 }
 
 export interface MenuMobileProps {
@@ -58,19 +62,9 @@ export const MenuMobile: FC<MenuMobileProps> = ({
         onClose={toggleMenu}
       >
         <List className={classes.list}>
-          {menu.map(
-            ({ slug, label, component, external }: MenuItem, idx: string) => (
-              <MenuItem
-                key={`menu_${idx}`}
-                to={slug}
-                label={label}
-                component={component}
-                external={external}
-                onClose={toggleMenu}
-                mobile
-              />
-            )
-          )}
+          {menu.map((props: MenuItem, idx: string) => (
+            <MenuItem key={`menu_${idx}`} {...props} mobile />
+          ))}
         </List>
       </Drawer>
     </Hidden>
