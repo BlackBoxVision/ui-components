@@ -28,4 +28,8 @@ export const useStyles = makeStyles((theme) => ({
       borderWidth: 2,
     },
   },
+  error: {
+    color: theme.palette.error.main,
+    width: '100%',
+  },
 }));

@@ -7,7 +7,9 @@ import {
   CardActions,
   TextField,
   Typography,
+  CircularProgress,
 } from '@material-ui/core';
+import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 
 import { useStyles } from './styles';
 
@@ -52,6 +54,10 @@ export interface ContactFormProps {
    */
   submitButtonLabel: string;
   /**
+   * The label that shows the button when the submit fails
+   */
+  retryButtonLabel: string;
+  /**
    * Box Shadow for the ContactForm
    */
   elevation?: number;
@@ -59,6 +65,18 @@ export interface ContactFormProps {
    * AOS properties for animation configuration
    */
   aosProps?: AosProps;
+  /**
+   * Loading flag
+   */
+  loading: boolean;
+  /**
+   * A flag that represents a submit error
+   */
+  error: boolean;
+  /**
+   * A flag that marks a submit done
+   */
+  sended: boolean;
 }
 
 export const ContactForm: FC<ContactFormProps> = ({
@@ -69,8 +87,12 @@ export const ContactForm: FC<ContactFormProps> = ({
   emailLabel,
   messageLabel,
   submitButtonLabel,
+  retryButtonLabel,
   elevation,
   aosProps,
+  loading,
+  error,
+  sended,
 }: ContactFormProps) => {
   const classes = useStyles();
 
@@ -129,6 +151,11 @@ export const ContactForm: FC<ContactFormProps> = ({
               />
             </CardContent>
             <CardActions className={classes.cardActions}>
+              {error && !loading && (
+                <Typography align="left" className={classes.error}>
+                  Something went wrong &#129335;. Please try again
+                </Typography>
+              )}
               <Button
                 type="submit"
                 color="primary"
@@ -136,7 +163,15 @@ export const ContactForm: FC<ContactFormProps> = ({
                 className={classes.submitBtn}
                 disabled={submitting || Object.keys(errors).length > 0}
               >
-                {submitButtonLabel}
+                {error ? (
+                  retryButtonLabel
+                ) : loading ? (
+                  <CircularProgress size={24} />
+                ) : sended ? (
+                  <DoneRoundedIcon />
+                ) : (
+                  submitButtonLabel
+                )}
               </Button>
             </CardActions>
           </Card>
@@ -152,6 +187,7 @@ ContactForm.defaultProps = {
     'data-aos': 'fade-up',
     'data-aos-once': 'true',
   },
+  retryButtonLabel: 'retry',
 };
 
 ContactForm.displayName = 'ContactForm';

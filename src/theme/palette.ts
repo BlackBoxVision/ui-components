@@ -10,21 +10,27 @@ export const lightPalette = {
   common: {
     white: '#FFF',
   },
+  error: {
+    light: '#E57373',
+    main: '#D32F2F',
+    dark: '#D32F2F',
+    contrastText: '#FFF',
+  },
   doveGray: '#666',
   tundora: '#424242',
 };
 
 export const darkPalette = {
   primary: {
-    main: "#C2FADE",
-    contrastText: '#081B2E'
+    main: '#C2FADE',
+    contrastText: '#081B2E',
   },
   secondary: {
-    main: "#f7f7f7",
-    contrastText: '#444444'
+    main: '#f7f7f7',
+    contrastText: '#444444',
   },
   background: {
     default: '#112f41',
-    paper: '#081B2E'
+    paper: '#081B2E',
   },
-}
+};

@@ -28,15 +28,22 @@ export const lightTheme: Theme = createMuiTheme({
         minHeight: 90,
       },
     },
+    MuiFormHelperText: {
+      root: {
+        '&:Mui-Error': {
+          color: lightPalette.error.dark,
+        },
+      },
+    },
   },
 });
 
 export const darkTheme: Theme = createMuiTheme({
   palette: {
-...darkPalette,
+    ...darkPalette,
     type: 'dark',
   },
   typography: {
     fontFamily: "Ubuntu, 'sans-serif'",
-  }
+  },
 });

@@ -3,7 +3,7 @@ import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { Grid } from '@material-ui/core';
 
 import { addThemeProvider } from './utils/decorators/theme';
-import { emailRegex } from './utils/regex';
+import { MyContactForm } from './utils/components/MyContactForm';
 
 import { ContactForm, lightTheme } from '../src';
 
@@ -20,25 +20,50 @@ This is how you can use **ContactForm** component:
 ```jsx
 import React from 'react';
 import { ContactForm } from '@blackbox-vision/ui-components';
-import { yourValidateFn } from './utils';
+import { validateForm } from './utils/validations';
 
-export const MyContactForm = () => (
-  <Grid container>
-    <Grid item>
-      <ContactForm
-        onSubmit={(values) =>
-          alert(`Submit values: ${JSON.stringify(values, 4, null)}`)
-        }
-        validate={yourValidateFn}
-        title="Contact us!"
-        subtitle="Complete the form if you are looking for incredible solutions!"
-        emailLabel="Email"
-        messageLabel="Message"
-        submitButtonLabel="Send"
-      />
-    </Grid>
-  </Grid>
-);
+export const MyContactForm = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [sended, setSended] = useState(false);
+
+  const submit = (values: any) =>
+    new Promise((resolve) =>
+      setTimeout(() => {
+        alert(JSON.stringify(values, null, 4));
+        resolve('ok');
+      }, 1000)
+    );
+
+  const onSubmit = async (values: any) => {
+    setLoading(true);
+    const res = await submit(values);
+    setLoading(false);
+    if (res === 'ok') {
+      setError(false);
+      setSended(true);
+    } else {
+      setError(true);
+      setSended(false);
+    }
+  };
+
+  return (
+    <ContactForm
+      onSubmit={onSubmit}
+      loading={loading}
+      sended={sended}
+      error={error}
+      validate={validateForm}
+      title="Contact us!"
+      subtitle="Complete the form if you are looking for incredible solutions!"
+      emailLabel="Email"
+      messageLabel="Message"
+      submitButtonLabel="Send"
+      retryButtonLabel="Retry"
+    />
+  );
+};
 
 MyContactForm.displayName = 'MyContactForm';
 ```
@@ -48,38 +73,13 @@ MyContactForm.displayName = 'MyContactForm';
 Here you can see the **ContactForm** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
     <Grid container>
       <Grid item>
-        <ContactForm
-          onSubmit={(values) =>
-            alert(`Submit values: ${JSON.stringify(values, 4, null)}`)
-          }
-          validate={(values) => {
-            const errors = {};
-            if (!values.email) {
-              errors.email = 'Email required';
-            }
-            
-            if (!emailRegex.test(values.email)) {
-              errors.email = 'Invalid email';
-            }
-            
-            if (!values.message) {
-              errors.message = 'Message required';
-            }
-            return errors;
-          }}
-          elevation={number('Elevation', 0)}
-          title={text('Title', 'Contact us!')}
-          subtitle={text(
-            'Subtitle',
-            'Complete the form if you are looking for incredible solutions!'
-          )}
-          emailLabel={text('Email label', 'Email')}
-          messageLabel={text('Message label', 'Message')}
-          submitButtonLabel={text('Send', 'Send')}
-        />
+        <MyContactForm />
       </Grid>
     </Grid>
   </Story>
