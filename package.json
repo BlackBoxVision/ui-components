@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/ui-components",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "This library contains the UI components that we use on our sites. These components use Material UI and are responsive to both desktop and mobile.",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
