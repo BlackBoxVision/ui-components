@@ -21,6 +21,10 @@ export interface MenuItemProps {
    */
   external?: boolean;
   /**
+   * The boolean value used to determine some internal link props
+   */
+  anchor?: boolean;
+  /**
    * The boolean value used to determine desktop or mobile styles
    */
   mobile?: boolean;
@@ -33,16 +37,28 @@ export interface MenuItemProps {
 export const MenuItem: FC<MenuItemProps> = ({
   to,
   label,
+  anchor,
   component,
   external,
   mobile,
   onClose,
 }: MenuItemProps) => {
-  const classes = useStyles(mobile);
+  const classes = useStyles();
 
-  const hrefProps = external
-    ? { href: to, target: '_blank', rel: 'noopener noreferrer' }
-    : { to, target: '_self' };
+  let hrefProps: any = {
+    target: '_self',
+  };
+
+  if (anchor || external) {
+    hrefProps.href = to;
+
+    if (external) {
+      hrefProps.target = '_blank';
+      hrefProps.rel = 'noopener noreferrer';
+    }
+  } else {
+    hrefProps.to = to;
+  }
 
   return mobile ? (
     <ListItem {...hrefProps} component={component} onClick={onClose} button>
