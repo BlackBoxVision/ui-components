@@ -25,7 +25,7 @@ export const MyMenuMobile = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <MenuMobile open={open} menu={menuItems} onClose={() => setOpen(false)} />
+    <MenuMobile open={open} menu={menuItems} toggleMenu={() => setOpen(false)} />
   );
 };
 

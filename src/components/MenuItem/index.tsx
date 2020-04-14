@@ -17,11 +17,11 @@ export interface MenuItemProps {
    */
   component?: any;
   /**
-   * The boolean value used to determine some internal link props
+   * A boolean to mark a link like external
    */
   external?: boolean;
   /**
-   * The boolean value used to determine some internal link props
+   * A boolean to mark a link like anchor
    */
   anchor?: boolean;
   /**

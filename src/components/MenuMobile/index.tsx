@@ -7,15 +7,15 @@ import { useStyles } from './styles';
 
 interface MenuItem {
   /**
-   * The path of menu item link
+   * The url of link
    */
   to: string;
   /**
-   * The label to display on link
+   * The link label
    */
   label: string;
   /**
-   * The component used by the link
+   * The Link component
    */
   component?: any;
   /**
@@ -26,6 +26,14 @@ interface MenuItem {
    * A boolean to mark a link like anchor
    */
   anchor?: boolean;
+  /**
+   * The boolean value used to determine desktop or mobile styles
+   */
+  mobile?: boolean;
+  /**
+   * Callback used to close the drawer on mobile
+   */
+  onClose?: any;
 }
 
 export interface MenuMobileProps {
@@ -63,7 +71,12 @@ export const MenuMobile: FC<MenuMobileProps> = ({
       >
         <List className={classes.list}>
           {menu.map((props: MenuItem, idx: string) => (
-            <MenuItem key={`menu_${idx}`} {...props} mobile />
+            <MenuItem
+              key={`menu_${idx}`}
+              {...props}
+              onClose={toggleMenu}
+              mobile
+            />
           ))}
         </List>
       </Drawer>
