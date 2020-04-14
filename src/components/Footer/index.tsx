@@ -9,18 +9,18 @@ import {
   IconDefinition,
 } from '@fortawesome/free-brands-svg-icons';
 
-import Social from './Social';
+import Social from '../Social';
 import { useStyles } from './styles';
 
-export interface SocialItemProps {
+interface SocialItemProps {
   /**
    * String that represents the social network's name
    */
-  key: string;
+  name: string;
   /**
    * URL for the social network profile you want to refer
    */
-  slug: string;
+  to: string;
   /**
    * Icon related to the social network
    */
@@ -29,6 +29,28 @@ export interface SocialItemProps {
    * Background color for the social network
    */
   background: string;
+  /**
+   * Container Fab button size
+   */
+  size?: 'small' | 'medium' | 'large';
+  /**
+   * Fontawesome icon size
+   */
+  iconSize?:
+    | '2x'
+    | 'xs'
+    | 'lg'
+    | 'sm'
+    | '1x'
+    | '3x'
+    | '4x'
+    | '5x'
+    | '6x'
+    | '7x'
+    | '8x'
+    | '9x'
+    | '10x'
+    | undefined;
 }
 
 export interface FooterProps {
@@ -63,9 +85,7 @@ export const Footer: FC<FooterProps> = ({
       {children}
       <div className={classes.socialContainer}>
         {social &&
-          social.map(({ key, slug, Icon, background }) => (
-            <Social key={key} slug={slug} Icon={Icon} background={background} />
-          ))}
+          social.map((item, idx) => <Social key={`social_${idx}`} {...item} />)}
       </div>
       <Typography align="center" variant="subtitle2">
         {copyright}
@@ -78,32 +98,32 @@ export const Footer: FC<FooterProps> = ({
 Footer.defaultProps = {
   social: [
     {
-      key: 'facebook',
-      slug: 'https://www.facebook.com/BlackBoxVision',
+      name: 'facebook',
+      to: 'https://www.facebook.com/BlackBoxVision',
       Icon: faFacebookF,
       background: 'rgb(63, 81, 181)',
     },
     {
-      key: 'twitter',
-      slug: 'https://twitter.com/blackbox_vision',
+      name: 'twitter',
+      to: 'https://twitter.com/blackbox_vision',
       Icon: faTwitter,
       background: 'rgb(33, 150, 243)',
     },
     {
-      key: 'github',
-      slug: 'https://github.com/BlackBoxVision',
+      name: 'github',
+      to: 'https://github.com/BlackBoxVision',
       Icon: faGithub,
       background: '#000',
     },
     {
-      key: 'linkedin',
-      slug: 'https://www.linkedin.com/company/blackbox-vision/',
+      name: 'linkedin',
+      to: 'https://www.linkedin.com/company/blackbox-vision/',
       Icon: faLinkedin,
       background: 'rgb(0, 119, 181)',
     },
     {
-      key: 'instagram',
-      slug: 'https://www.instagram.com/blackbox_vision/?hl=en',
+      name: 'instagram',
+      to: 'https://www.instagram.com/blackbox_vision/?hl=en',
       Icon: faInstagram,
       background:
         'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
