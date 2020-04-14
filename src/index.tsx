@@ -9,4 +9,5 @@ export * from './components/ContactForm';
 export * from './components/MenuItem';
 export * from './components/PostCard';
 export * from './components/MenuMobile';
+export * from './components/Social';
 export * from './theme';

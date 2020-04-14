@@ -1,0 +1,85 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, select, color } from '@storybook/addon-knobs';
+import {
+  faLinkedin,
+  faFacebookF,
+  faGithub,
+  faTwitter,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { Social, lightTheme } from '../src';
+
+<Meta title="UI Components/Social" component={Social} />
+
+# Social
+
+Stories related to **Social** component.
+
+## Example
+
+This is how you can use **Social** component:
+
+```jsx
+import React from 'react';
+import { Social } from '@blackbox-vision/ui-components';
+
+export const MySocial = () => <Social />;
+
+MySocial.displayName = 'MySocial';
+```
+
+## Live Preview
+
+Here you can see the **Social** component in action:
+
+<Preview withSource="none">
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
+    <Social
+      name={text('Name', 'linkedin')}
+      to={text('To', 'https://www.linkedin.com/company/blackbox-vision/')}
+      size={text('Size', 'medium')}
+      background={color('Background color', 'rgb(0, 119, 181)')}
+      Icon={select(
+        'Icon',
+        {
+          Linkedin: faLinkedin,
+          Facebook: faFacebookF,
+          Github: faGithub,
+          Twitter: faTwitter,
+          Instagram: faInstagram,
+        },
+        faLinkedin
+      )}
+      iconSize={select(
+        'Icon size',
+        {
+          xs: 'xs',
+          lg: 'lg',
+          sm: 'sm',
+          '1x': '1x',
+          '2x': '2x',
+          '3x': '3x',
+          '4x': '4x',
+          '5x': '5x',
+          '6x': '6x',
+          '7x': '7x',
+          '8x': '8x',
+          '9x': '9x',
+          '10x': '10x',
+        },
+        '2x'
+      )}
+    />
+  </Story>
+</Preview>
+
+## Social Props
+
+Here you can see the props for the **Social** component:
+
+<Props of={Social} />
