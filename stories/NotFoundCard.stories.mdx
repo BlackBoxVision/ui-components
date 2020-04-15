@@ -74,6 +74,28 @@ Here you can see the **NotFoundCard** component in action:
       </Route>
     </Switch>
   </Story>
+  <Story
+    name="Without props"
+    decorators={[
+      withKnobs,
+      addThemeProvider(lightTheme),
+      StoryRouter(
+        {
+          '/': linkTo('Header', 'home'),
+        },
+        { initialEntries: ['/not-found'] }
+      ),
+    ]}
+  >
+    <Switch>
+      <Route exact path="/">
+        I'm in home
+      </Route>
+      <Route exact path="/not-found">
+        <NotFoundCard id="error" component={Link} to="/" />
+      </Route>
+    </Switch>
+  </Story>
 </Preview>
 
 ## NotFoundCard Props

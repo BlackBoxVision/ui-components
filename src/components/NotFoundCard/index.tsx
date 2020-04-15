@@ -7,6 +7,7 @@ import {
   CardActions,
   Typography,
 } from '@material-ui/core';
+import LazyLoad from 'react-lazyload';
 
 import { Hero } from '../Hero';
 import { useStyles } from './styles';
@@ -57,7 +58,19 @@ export const NotFoundCard: FC<NotFoundCardProps> = ({
     <Hero id={id} clip="none">
       <Card className={clsx(classes.card, className)}>
         <CardContent>
-          <img alt="404 not found" src={image} className={classes.cardImg} />
+          {image ? (
+            <LazyLoad>
+              <img
+                alt="404 not found"
+                src={image}
+                className={classes.cardImg}
+              />
+            </LazyLoad>
+          ) : (
+            <Typography align="center" variant="h1" color="primary">
+              404
+            </Typography>
+          )}
           <Typography align="center" variant="h6" component="h2" gutterBottom>
             {message}
           </Typography>
@@ -80,6 +93,8 @@ export const NotFoundCard: FC<NotFoundCardProps> = ({
 
 NotFoundCard.defaultProps = {
   to: '/',
+  message: '¡Ups! Something went wrong',
+  btnLabel: 'Back to home',
 };
 
 NotFoundCard.displayName = 'NotFoundCard';
