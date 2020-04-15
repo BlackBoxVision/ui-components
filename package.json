@@ -19,7 +19,8 @@
     "react": "^16.13.1",
     "final-form": "^4.19.1",
     "react-final-form": "^6.4.0",
-    "react-headroom": "^3.0.0"
+    "react-headroom": "^3.0.0",
+    "react-lazyload": "^2.6.7"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
