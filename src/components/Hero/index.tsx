@@ -43,7 +43,7 @@ export interface HeroProps {
   /**
    * The title that shows the hero component
    */
-  title: string;
+  title?: string;
   /**
    * Additional props for title component
    */
@@ -51,7 +51,7 @@ export interface HeroProps {
   /**
    * The subtitle that shows the hero component
    */
-  subtitle: string;
+  subtitle?: string;
   /**
    * Additional props for subtitle component
    */
