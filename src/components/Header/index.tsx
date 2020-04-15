@@ -23,15 +23,25 @@ export interface HeaderProps {
    * A number used to set the header box shadow intensity
    */
   elevation?: number;
+  /**
+   * Background color applied on scroll
+   */
+  background?: string;
+  /**
+   * If true, disables the toolbar gutter padding
+   */
+  disableGutters?: boolean;
 }
 
 export const Header: FC<HeaderProps> = ({
   children,
   elevation,
   height,
+  background,
+  disableGutters,
 }: HeaderProps) => {
   const [collapsed, setCollapsed] = useState(true);
-  const classes = useStyles({ collapsed, height });
+  const classes = useStyles({ collapsed, height, background });
 
   const handleScroll = useCallback(() => {
     if (window.scrollY > 64) {
@@ -51,7 +61,9 @@ export const Header: FC<HeaderProps> = ({
   return (
     <Headroom>
       <AppBar position="fixed" elevation={elevation} className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>{children}</Toolbar>
+        <Toolbar className={classes.toolbar} disableGutters={disableGutters}>
+          {children}
+        </Toolbar>
       </AppBar>
     </Headroom>
   );
@@ -60,6 +72,7 @@ export const Header: FC<HeaderProps> = ({
 Header.defaultProps = {
   elevation: 0,
   height: 64,
+  disableGutters: false,
 };
 
 Header.displayName = 'Header';

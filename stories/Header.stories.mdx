@@ -74,6 +74,29 @@ Here you can see the **Header** component in action:
   </Story>
 </Preview>
 
+<Preview>
+  <Story
+    name="Custom props"
+    decorators={[
+      addThemeProvider(lightTheme),
+      StoryRouter({
+        '/': linkTo('Header', 'home'),
+      }),
+    ]}
+  >
+    <Switch>
+      <Route exact path="/">
+        <div style={{ height: 900 }}>
+          <Header background="#F5F5F5" disableGutters>
+            <LogoComponent />
+            <MenuComponent menu={menuItems} />
+          </Header>
+        </div>
+      </Route>
+    </Switch>
+  </Story>
+</Preview>
+
 ## Header Props
 
 Here you can see the props for the **Header** component:
