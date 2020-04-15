@@ -38,7 +38,7 @@ export interface NotFoundCardProps {
    */
   btnLabel: string;
   /**
-   * Button Label
+   * ClassName applied to card
    */
   className?: string;
 }
