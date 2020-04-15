@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(() => ({
   card: {
-    maxWidth: 300,
+    background: (props: any) => props.background || 'transparent',
   },
   cardContent: {
     alignItems: 'center',
@@ -10,8 +10,6 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   cardImg: {
-    height: 'auto',
-    maxHeight: 200,
-    marginBottom: theme.spacing(2),
+    height: 250,
   },
 }));

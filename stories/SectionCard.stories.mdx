@@ -1,5 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { Grid } from '@material-ui/core';
 
 import { addThemeProvider } from './utils/decorators/theme';
 import { SectionCard, lightTheme } from '../src';
@@ -34,19 +35,58 @@ MySectionCard.displayName = 'MySectionCard';
 Here you can see the **SectionCard** component in action:
 
 <Preview withSource="none">
-  <Story name="Get started" decorators={[withKnobs, addThemeProvider(lightTheme)]}>
-    <SectionCard
-      elevation={number('Elevation', 0)}
-      title={text('Title', 'We discover')}
-      image={text(
-        'Image',
-        'https://www.blackbox-vision.tech/static/needs-e78b2aa36c17de9132482ac752cbfac8.svg'
-      )}
-      description={text(
-        'Description',
-        'Our focus is understand business and stakeholders needs, analyzing, defining and validating every requirement in order to know “what” is needed.'
-      )}
-    />
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
+    <Grid
+      style={{ backgroundColor: '#F5F5F5', height: '100vh', padding: 16 }}
+      spacing={2}
+      container
+    >
+      <Grid md={4} item>
+        <SectionCard
+          elevation={number('Elevation 1', 0)}
+          title={text('Title 1', 'Custom software')}
+          image={text(
+            'Image 1',
+            'https://images.unsplash.com/photo-1582138825658-fb952c08b282?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
+          )}
+          description={text(
+            'Description 1',
+            'We design and build unique digital products to meet the needs and desires of our customers.'
+          )}
+        />
+      </Grid>
+      <Grid md={4} item>
+        <SectionCard
+          elevation={number('Elevation 2', 0)}
+          title={text('Title 2', 'Consultancy')}
+          image={text(
+            'Image 2',
+            'https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
+          )}
+          description={text(
+            'Description 2',
+            'We help our clients diagnose architecture problems and define particular technological solutions for each scenario.'
+          )}
+        />
+      </Grid>
+      <Grid md={4} item>
+        <SectionCard
+          elevation={number('Elevation 3', 0)}
+          title={text('Title 3', 'Trainings')}
+          image={text(
+            'Image 3',
+            'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
+          )}
+          description={text(
+            'Description 3',
+            'We accompany the training path for those who wish to learn more about cutting-edge technologies and the application of agile methodologies for software development.'
+          )}
+        />
+      </Grid>
+    </Grid>
   </Story>
 </Preview>
 

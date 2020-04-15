@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
+import clsx from 'clsx';
+import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import LazyLoad from 'react-lazyload';
 
 import { useStyles } from './styles';
 
@@ -35,6 +37,22 @@ export interface SectionCardProps {
    * AOS properties for animation configuration
    */
   aosProps?: AosProps;
+  /**
+   * Background styles applied to card
+   */
+  background?: string;
+  /**
+   * Style object applied to Card component
+   */
+  style?: any;
+  /**
+   * ClassName applied to Card component
+   */
+  cardClassName?: string;
+  /**
+   * ClassName applied to CardMedia component
+   */
+  imgClassName?: string;
 }
 
 export const SectionCard: FC<SectionCardProps> = ({
@@ -43,18 +61,27 @@ export const SectionCard: FC<SectionCardProps> = ({
   description,
   elevation,
   aosProps,
+  style,
+  cardClassName,
+  imgClassName,
 }: SectionCardProps) => {
   const classes = useStyles();
 
   return (
-    <Card {...aosProps} elevation={elevation} className={classes.card}>
-      <CardContent className={classes.cardContent}>
-        <img
-          className={classes.cardImg}
-          alt={image}
-          src={image}
+    <Card
+      {...aosProps}
+      elevation={elevation}
+      className={clsx(classes.card, cardClassName)}
+      style={style}
+    >
+      <LazyLoad height={250}>
+        <CardMedia
           title={title}
+          image={image}
+          className={clsx(classes.cardImg, imgClassName)}
         />
+      </LazyLoad>
+      <CardContent className={classes.cardContent}>
         <Typography {...aosProps} align="center" variant="h6" gutterBottom>
           {title}
         </Typography>
