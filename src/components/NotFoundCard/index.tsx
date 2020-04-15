@@ -8,7 +8,7 @@ import {
   Typography,
 } from '@material-ui/core';
 
-import { Hero } from '../../../src';
+import { Hero } from '../Hero';
 import { useStyles } from './styles';
 
 export interface NotFoundCardProps {
