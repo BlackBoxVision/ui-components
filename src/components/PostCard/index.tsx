@@ -1,5 +1,11 @@
 import React, { FC } from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
+import {
+  Avatar,
+  Card,
+  CardHeader,
+  CardContent,
+  Typography,
+} from '@material-ui/core';
 
 import { useStyles } from './styles';
 
@@ -39,6 +45,10 @@ export interface PostCardProps {
    * AOS properties for animation configuration
    */
   aosProps?: AosProps;
+  /**
+   * Data of the post author
+   */
+  author: any;
 }
 
 export const PostCard: FC<PostCardProps> = ({
@@ -48,11 +58,30 @@ export const PostCard: FC<PostCardProps> = ({
   excerpt,
   elevation,
   aosProps,
+  author,
 }: PostCardProps) => {
   const classes = useStyles({ image });
 
   return (
     <Card {...aosProps} elevation={elevation} className={classes.card}>
+      <CardHeader
+        avatar={
+          <Avatar
+            alt={author.fullname}
+            aria-label="author"
+            src={author.avatar}
+          />
+        }
+        subheader={
+          <Typography
+            align="left"
+            variant="subtitle2"
+            className={classes.cardText}
+          >
+            {author.fullname}
+          </Typography>
+        }
+      />
       <CardContent>
         <Typography
           align="left"
@@ -88,6 +117,7 @@ PostCard.defaultProps = {
     'data-aos': 'fade-up',
     'data-aos-once': 'true',
   },
+  author: {},
 };
 
 PostCard.displayName = 'PostCard';

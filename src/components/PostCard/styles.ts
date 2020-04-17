@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[2],
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     height: 400,
     transition: '0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
     position: 'relative',
