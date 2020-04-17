@@ -1,0 +1,106 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { Grid } from '@material-ui/core';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { TestimonialCard, lightTheme } from '../src';
+
+<Meta title="UI Components/TestimonialCard" component={TestimonialCard} />
+
+# TestimonialCard
+
+Stories related to **TestimonialCard** component.
+
+## Example
+
+This is how you can use **TestimonialCard** component:
+
+```jsx
+import React from 'react';
+import { Grid } from '@material-ui/core';
+import { TestimonialCard } from '@blackbox-vision/ui-components';
+
+export const MyTestimonialCard = () => (
+  <Grid justify="space-around" spacing={2} container>
+    <Grid md={4} item>
+      <TestimonialCard
+        personName="Isaac Schlueter"
+        personCharge="Co-Founder and Chief Open Technology Officer"
+        personImg="https://res-4.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_120,w_120,f_auto,g_faces,z_0.7,b_white,q_auto:eco/v1399559750/zexhlid5vdkl7fgenrtu.jpg"
+        testimonial="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt leo a interdum facilisis. Nullam ut egestas quam, nec blandit metus. In dapibus purus mauris, at vehicula elit porta a. Curabitur in porta nibh, eget placerat tortor."
+        companyLogo="https://cdn.worldvectorlogo.com/logos/npm.svg"
+      />
+    </Grid>
+    <Grid md={4} item>
+      <TestimonialCard
+        personName="Herbert Diess"
+        personCharge="CEO"
+        personImg="https://cdn.skoda-storyboard.com/2018/05/180530-Dr.-Herbert-Diess-1440x1108.jpg"
+        testimonial="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt leo a interdum facilisis. Nullam ut egestas quam, nec blandit metus. In dapibus purus mauris, at vehicula elit porta a. Curabitur in porta nibh, eget placerat tortor."
+        companyLogo="https://seeklogo.com/images/V/volkswagen-new-2019-logo-4BCCD0D7F9-seeklogo.com.png"
+      />
+    </Grid>
+  </Grid>
+);
+
+MyTestimonialCard.displayName = 'MyTestimonialCard';
+```
+
+## Live Preview
+
+Here you can see the **TestimonialCard** component in action:
+
+<Preview withSource="none">
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
+    <Grid justify="space-around" spacing={2} container>
+      <Grid md={4} item>
+        <TestimonialCard
+          personName={text('Person 1 name', 'Isaac Schlueter')}
+          personCharge={text(
+            'Person 1 charge',
+            'Co-Founder and Chief Open Technology Officer'
+          )}
+          personImg={text(
+            'Person 1 image',
+            'https://res-4.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_120,w_120,f_auto,g_faces,z_0.7,b_white,q_auto:eco/v1399559750/zexhlid5vdkl7fgenrtu.jpg'
+          )}
+          testimonial={text(
+            'Person 1 testimonial',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt leo a interdum facilisis. Nullam ut egestas quam, nec blandit metus. In dapibus purus mauris, at vehicula elit porta a. Curabitur in porta nibh, eget placerat tortor.'
+          )}
+          companyLogo={text(
+            'Person 1 company logo',
+            'https://cdn.worldvectorlogo.com/logos/npm.svg'
+          )}
+        />
+      </Grid>
+      <Grid md={4} item>
+        <TestimonialCard
+          personName={text('Person 2 name', 'Herbert Diess')}
+          personCharge={text('Person 2 charge', 'CEO')}
+          personImg={text(
+            'Person 2 image',
+            'https://cdn.skoda-storyboard.com/2018/05/180530-Dr.-Herbert-Diess-1440x1108.jpg'
+          )}
+          testimonial={text(
+            'Person 2 testimonial',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt leo a interdum facilisis. Nullam ut egestas quam, nec blandit metus. In dapibus purus mauris, at vehicula elit porta a. Curabitur in porta nibh, eget placerat tortor.'
+          )}
+          companyLogo={text(
+            'Person 2 company logo',
+            'https://seeklogo.com/images/V/volkswagen-new-2019-logo-4BCCD0D7F9-seeklogo.com.png'
+          )}
+        />
+      </Grid>
+    </Grid>
+  </Story>
+</Preview>
+
+## TestimonialCard Props
+
+Here you can see the props for the **TestimonialCard** component:
+
+<Props of={TestimonialCard} />
