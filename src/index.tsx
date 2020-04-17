@@ -11,4 +11,5 @@ export * from './components/PostCard';
 export * from './components/MenuMobile';
 export * from './components/Social';
 export * from './components/NotFoundCard';
+export * from './components/CallToAction';
 export * from './theme';

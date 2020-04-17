@@ -1,0 +1,45 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+
+import { addThemeProvider } from './utils/decorators/theme';
+import { CallToAction, lightTheme } from '../src';
+
+<Meta title="UI Components/CallToAction" component={CallToAction} />
+
+# CallToAction
+
+Stories related to **CallToAction** component.
+
+## Example
+
+This is how you can use **CallToAction** component:
+
+```jsx
+import React from 'react';
+import { CallToAction } from '@blackbox-vision/ui-components';
+
+import LanguageButtons from './LanguageButtons';
+
+export const MyCallToAction = () => <CallToAction>Get in Touch</CallToAction>;
+
+MyCallToAction.displayName = 'MyCallToAction';
+```
+
+## Live Preview
+
+Here you can see the **CallToAction** component in action:
+
+<Preview withSource="none">
+  <Story
+    name="Get started"
+    decorators={[withKnobs, addThemeProvider(lightTheme)]}
+  >
+    <CallToAction>Get In Touch</CallToAction>
+  </Story>
+</Preview>
+
+## CallToAction Props
+
+Here you can see the props for the **CallToAction** component:
+
+<Props of={CallToAction} />
