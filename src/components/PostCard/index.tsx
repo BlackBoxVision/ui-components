@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import clsx from 'clsx';
 import {
   Avatar,
   Card,
@@ -46,9 +47,17 @@ export interface PostCardProps {
    */
   aosProps?: AosProps;
   /**
-   * Data of the post author
+   * Fullname of the post author
    */
-  author: any;
+  authorName?: string;
+  /**
+   * Avatar image of the post author
+   */
+  authorAvatar?: string;
+  /**
+   * Avatar classname
+   */
+  avatarClassName?: string;
 }
 
 export const PostCard: FC<PostCardProps> = ({
@@ -58,7 +67,9 @@ export const PostCard: FC<PostCardProps> = ({
   excerpt,
   elevation,
   aosProps,
-  author,
+  authorName,
+  authorAvatar,
+  avatarClassName,
 }: PostCardProps) => {
   const classes = useStyles({ image });
 
@@ -67,9 +78,10 @@ export const PostCard: FC<PostCardProps> = ({
       <CardHeader
         avatar={
           <Avatar
-            alt={author.fullname}
+            alt={authorName}
             aria-label="author"
-            src={author.avatar}
+            src={authorAvatar}
+            className={clsx(classes.avatar, avatarClassName)}
           />
         }
         subheader={
@@ -78,7 +90,7 @@ export const PostCard: FC<PostCardProps> = ({
             variant="subtitle2"
             className={classes.cardText}
           >
-            {author.fullname}
+            {authorName}
           </Typography>
         }
       />
@@ -117,7 +129,6 @@ PostCard.defaultProps = {
     'data-aos': 'fade-up',
     'data-aos-once': 'true',
   },
-  author: {},
 };
 
 PostCard.displayName = 'PostCard';

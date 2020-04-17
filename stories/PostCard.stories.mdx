@@ -36,11 +36,8 @@ export const MyPostCard = () => (
               image="https://cms.blackbox-vision.tech/content/images/2020/04/lib-logo-1.png"
               date="06 April, 2020"
               excerpt="Context\nIn the last few weeks, the team has been involve ..."
-              author={{
-                fullname: 'Manuel Tuero',
-                avatar:
-                  'https://s.gravatar.com/avatar/35f80ddce31cdb31be6dad3b7d76f9d2?size=496&default=retro',
-              }}
+              authorName="Manuel Tuero"
+              authorAvatar="https://s.gravatar.com/avatar/35f80ddce31cdb31be6dad3b7d76f9d2?size=496&default=retro"
             />
           </Grid>
         </Grid>
@@ -96,13 +93,11 @@ Here you can see the **PostCard** component in action:
                   'Context\nIn the last few weeks, the team has been involve ...'
                 )}
                 elevation={number('Elevation', 0)}
-                author={{
-                  fullname: text('Fullname', 'Manuel Tuero'),
-                  avatar: text(
-                    'Avatar',
-                    'https://s.gravatar.com/avatar/35f80ddce31cdb31be6dad3b7d76f9d2?size=496&default=retro'
-                  ),
-                }}
+                authorName={text('Fullname', 'Manuel Tuero')}
+                authorAvatar={text(
+                  'Avatar',
+                  'https://s.gravatar.com/avatar/35f80ddce31cdb31be6dad3b7d76f9d2?size=496&default=retro'
+                )}
               />
             </Grid>
           </Grid>

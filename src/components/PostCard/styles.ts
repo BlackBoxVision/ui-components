@@ -31,4 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     zIndex: 1,
   },
+  avatar: {
+    marginBottom: 0,
+  },
 }));
