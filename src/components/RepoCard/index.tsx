@@ -54,6 +54,10 @@ export interface RepoCardProps {
    */
   className: string;
   /**
+   * Material UI color
+   */
+  color?: 'inherit' | 'primary' | 'secondary';
+  /**
    * AOS properties for animation configuration
    */
   aosProps?: AosProps;
@@ -69,6 +73,7 @@ export const RepoCard: FC<RepoCardProps> = ({
   languageColor,
   aosProps,
   className,
+  color = 'secondary'
 }: RepoCardProps) => {
   const classes = useStyles();
 
@@ -85,7 +90,7 @@ export const RepoCard: FC<RepoCardProps> = ({
           <Typography
             className={classes.title}
             variant="subtitle1"
-            color="secondary"
+            color={color}
             component="h2"
             gutterBottom
           >
@@ -93,7 +98,7 @@ export const RepoCard: FC<RepoCardProps> = ({
           </Typography>
           <Typography
             className={classes.description}
-            color="secondary"
+            color={color}
             variant="body1"
           >
             {description}
@@ -102,7 +107,7 @@ export const RepoCard: FC<RepoCardProps> = ({
         <CardActions>
           <div className={classes.infoContainer}>
             <FontAwesomeIcon size="1x" icon={faCircle} color={languageColor} />
-            <Typography color="secondary" className={classes.info}>
+            <Typography color={color} className={classes.info}>
               {languageName}
             </Typography>
           </div>
@@ -110,11 +115,11 @@ export const RepoCard: FC<RepoCardProps> = ({
             href={`${url}/stargazers`}
             rel="noopener noreferrer"
             target="_blank"
-            color="secondary"
+            color={color}
             className={classes.infoContainer}
           >
             <FontAwesomeIcon size="1x" icon={faStar} color={languageColor} />
-            <Typography color="secondary" className={classes.info}>
+            <Typography color={color} className={classes.info}>
               {stars}
             </Typography>
           </Link>
@@ -122,7 +127,7 @@ export const RepoCard: FC<RepoCardProps> = ({
             href={`${url}/network`}
             rel="noopener noreferrer"
             target="_blank"
-            color="secondary"
+            color={color}
             className={classes.infoContainer}
           >
             <FontAwesomeIcon
@@ -130,7 +135,7 @@ export const RepoCard: FC<RepoCardProps> = ({
               icon={faCodeBranch}
               color={languageColor}
             />
-            <Typography color="secondary" className={classes.info}>
+            <Typography color={color} className={classes.info}>
               {forks}
             </Typography>
           </Link>
